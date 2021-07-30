@@ -23,8 +23,8 @@
 
 // set the dimensions and margins of the graph
 const margin = {top: 10, right: 20, bottom: 30, left: 50},
-    width = 1000 - margin.left - margin.right,
-    height = 840 - margin.top - margin.bottom;
+    width = 800 - margin.left - margin.right,
+    height = 672 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#my_dataviz")
@@ -47,7 +47,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
   // Add Y axis
   const y = d3.scaleLinear()
-    .domain([1200, 3000])
+    .domain([1200, 2800])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -55,7 +55,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // Add a scale for bubble size
   const z = d3.scaleLinear()
     .domain([0, 1500])
-    .range([ 4, 40]);
+    .range([ 4, 30]);
 
   // Add a scale for bubble color
   const myColor = d3.scaleOrdinal()
