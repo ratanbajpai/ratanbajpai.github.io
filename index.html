@@ -104,8 +104,8 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .attr("cx", d => x(d.gdp_pc_2019))
       .attr("cy", d => y(d.avh_2019))
       .attr("r", d => z(d.pop_2019))
-      .style("fill", d => myColor(d.continent)
-      .style('fill-opacity', 0.2))
+      .attr('fill-opacity', 0.2)
+      .style("fill", d => myColor(d.continent))
     // -3- Trigger the functions
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
