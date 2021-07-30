@@ -63,7 +63,8 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .range(d3.schemeSet2);
 
   // -1- Create a tooltip div that is hidden by default:
-  const tooltip = d3.select("#my_dataviz")
+  // const tooltip = d3.select("#my_dataviz")
+  const tooltip = d3.select('body')
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
@@ -71,6 +72,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .style("border-radius", "5px")
       .style("padding", "10px")
       .style("color", "black")
+      .style("position", "absolute")
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   const showTooltip = function(event, d) {
