@@ -35,7 +35,7 @@ const svg = d3.select("#my_dataviz")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 //Read the data
-d3.csv("https://github.com/ratanbajpai/ratanbajpai.github.io/blob/master/DVFinalProjectData.csv").then( function(data) {
+d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
