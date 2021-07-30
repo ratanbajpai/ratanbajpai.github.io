@@ -35,7 +35,7 @@ const svg = d3.select("#my_dataviz")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
 //Read the data
-d3.csv("https://github.com/ratanbajpai/ratanbajpai.github.io/blob/master/DVFinalProjectData.csv").then( function(data) {
+d3.csv("https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/4_ThreeNum.csv").then( function(data) {
 
   // Add X axis
   const x = d3.scaleLinear()
@@ -59,7 +59,7 @@ d3.csv("https://github.com/ratanbajpai/ratanbajpai.github.io/blob/master/DVFinal
 
   // Add a scale for bubble color
   const myColor = d3.scaleOrdinal()
-    .domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
+    .domain(["Asia", "Europe", "Americas", "Africa", "Oceania"])
     .range(d3.schemeSet2);
 
   // -1- Create a tooltip div that is hidden by default:
@@ -101,9 +101,9 @@ d3.csv("https://github.com/ratanbajpai/ratanbajpai.github.io/blob/master/DVFinal
     .data(data)
     .join("circle")
       .attr("class", "bubbles")
-      .attr("cx", d => x(d.gdp_pc_2019))
-      .attr("cy", d => y(d.avh_2019))
-      .attr("r", d => z(d.pop_2019))
+      .attr("cx", d => x(d.gdpPercap))
+      .attr("cy", d => y(d.lifeExp))
+      .attr("r", d => z(d.pop))
       .style("fill", d => myColor(d.continent))
     // -3- Trigger the functions
     .on("mouseover", showTooltip )
