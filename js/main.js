@@ -46,7 +46,12 @@ function updateChart(year) {
   var header = document.getElementById("pages");
   var btns = header.getElementsByClassName("btn-link");
   for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener("click", function() {
+    btns[i].addEventListener("click", function(e) {
+      e = e || window.event;
+      var target = e.target || e.srcElement;
+      console.log('window noticed you clicked something1');
+      console.log("value of the element clicked== "+target.innerText);
+      console.log(target);//<-- this is the element that was clicked
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
