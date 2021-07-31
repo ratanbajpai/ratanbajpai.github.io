@@ -41,6 +41,7 @@ h2 {
   border-style: solid;
   border-width: thin;
   border-color: #FFFFFF;
+  background-color: #F8F8F8;
 }
 .grid line {
   stroke: lightgrey;
