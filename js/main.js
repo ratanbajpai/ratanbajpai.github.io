@@ -18,7 +18,7 @@ const svg = d3.select("#bubble_plot")
         .attr("y",0)
         .attr("height", height)
         .attr("width", height)
-        .style("fill", "EBEBEB")
+        .style("fill", "#F8F8F8")
 
 // Axes scales
 const x = d3.scaleLinear()
@@ -122,7 +122,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
         + "<br>" + "Average annual hours: " + d.avh_2019)
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
+      .style("left", (d3.mouse(this)[0]+90) + "px")
       .style("top", (d3.mouse(this)[1]+200) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
@@ -131,7 +131,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     tooltip
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
+      .style("left", (d3.mouse(this)[0]+90) + "px")
       .style("top", (d3.mouse(this)[1]+200) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
