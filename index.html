@@ -94,8 +94,8 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Country: " + d.country + "Population: " + d.pop_2019
-        + "Average annual hours:" + d.avh_2019)
+      .html("Country: " + d.country + "\n" + "Population: " + d.pop_2019
+        + "\n" + "Average annual hours:" + d.avh_2019)
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
       .style("left", (d3.mouse(this)[0]+30) + "px")
