@@ -10,7 +10,7 @@
   stroke: black;
 }
 .tooltip {
-  position: absolute;
+  /* position: absolute; */
   width: 160px;
   height: 45px;
   padding: 5px;
