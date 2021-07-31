@@ -6,10 +6,12 @@ const margin = {top: 50, right: 50, bottom: 50, left: 50},
 // Add svg object to the bubble plot div
 const svg = d3.select("#bubble_plot")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    // .attr("width", width + margin.left + margin.right)
+    // .attr("height", height + margin.top + margin.bottom)
     // .attr("width", width)
     // .attr("height", height)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 1050 800")
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
@@ -85,7 +87,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     // text label for the y axis
     svg.append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 20)
+      .attr("y", 0 - margin.left - 10)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
