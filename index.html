@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Narrative Visualization</title>
+  <title>Narrative Visualization Project</title>
   <meta name="description" content="A narrative visualization project.">
   <meta name="author" content="R. Bajpai">
 
@@ -30,63 +30,54 @@
 </head>
 
 <body onload="setupSVG('1980')">
-  <!-- Nav Bar-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="height:50px">
-    <a class="navbar-brand">Narative Visualisation &nbsp;&nbsp;&nbsp;&nbsp;</a>
-</nav>
+  <!-- Can put any navigation bar here-->
 
-<div id="app">
-    <div class="content" style="height: 95%">
-        <!-- Blank area to centre search box on start-up -->
-        <div id="blank_area" class="row" style="min-height: 50px;">
-        </div>
+  <div id="main_content" class="content">
+    <div style="height: 95%">
 
-        <h1>Examining the differing trend towards a more urbanised society</h1>
+      <h1>Do People in rich countries work longer hours?</h1>
 
-        <p style="text-align: right; color: grey;"><i>Author: Kevin Sweeney  (
-            <a href="mailto:kts4@illinois.edu">mail</a> ) &nbsp; &nbsp; &nbsp; &nbsp;Tested in Google Chrome</i>
-        </p>
-
-        <p>Since detailed records have been available, there has been a general trend towards a more urbanised way of
-            living. The data presented within this visualisation (from the
-            <a href="https://datacatalog.worldbank.org/">
-                World Bank dataset</a>)
-            details the percentage growth rate in urban population versus the urban population
-            percentage for the years 2005, 2010 and 2015 for all the available countries of the world. Some minor
-            data cleaning has been completed.
+      <p>Since detailed records have been available, there has been a general trend towards a more urbanised way of
+        living. The data presented within this visualisation (from the
+        <a href="https://datacatalog.worldbank.org/">
+          World Bank dataset</a>)
+          details the percentage growth rate in urban population versus the urban population
+          percentage for the years 2005, 2010 and 2015 for all the available countries of the world. Some minor
+          data cleaning has been completed.
         </p>
 
         <br>
 
         <p>This <b>Interactive Slideshow</b> visualisation allows the user to step through the three available years
-            while providing the ability to explore the data at each time point.
-            The visualisation also provides some annotations detailing some interesting findings within the data.
+          while providing the ability to explore the data at each time point.
+          The visualisation also provides some annotations detailing some interesting findings within the data.
         </p>
 
         <br>
 
         <p>It can be seen from the interactive slideshow that the various regions of the world have widely differing
-            trends towards urbanisation. Some regions are currently quite rural (for example Sub-Saharan Africa)
-            with a significant trend towards urbanisation while other regions are already highly urbanised (for
-            example Middle East & North Africa), possibly due to lack of space or habitable space and are continuing
-            that trend.
+          trends towards urbanisation. Some regions are currently quite rural (for example Sub-Saharan Africa)
+          with a significant trend towards urbanisation while other regions are already highly urbanised (for
+          example Middle East & North Africa), possibly due to lack of space or habitable space and are continuing
+          that trend.
 
         </p>
 
         <br>
 
         <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-                <li class="page-item prev"><a class="page-link" onclick="prevYear()" tabindex="-1">Previous</a></li>
-                <li class="page-item nonClick active"><a class="page-link" onclick="updateSVG('1980')">1980</a></li>
-                <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2000')">2000</a></li>
-                <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2019')">2019</a></li>
-                <li class="page-item next"><a class="page-link" onclick="nextYear()">Next</a>
-                </li>
-            </ul>
+          <ul class="pagination justify-content-center">
+            <li class="page-item prev"><a class="page-link" onclick="prevYear()" tabindex="-1">Previous</a></li>
+            <li class="page-item nonClick active"><a class="page-link" onclick="updateSVG('1980')">1980</a></li>
+            <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2000')">2000</a></li>
+            <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2019')">2019</a></li>
+            <li class="page-item next"><a class="page-link" onclick="nextYear()">Next</a>
+            </li>
+          </ul>
         </nav>
-  <!-- Main div for the bubble plot -->
-  <div id="bubble_plot" class="content"></div>
+        <!-- Main div for the bubble plot -->
+        <div id="bubble_plot"></div>
+      </div>
 
-</body>
-</html>
+    </body>
+    </html>
