@@ -39,7 +39,9 @@ const x = d3.scaleLinear()
 function setupSVG() {}
 
 // Get the data from github gist to avoid the cors issue
-d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv").then( function(data) {
+d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
+  + "c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/
+  + "DVFinalProjectData.csv").then( function(data) {
 
   // add the X gridlines
   svg.append("g")
@@ -163,7 +165,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
   // Add dots
   // Fill-opacity can change the transparency of the circles
-  svg.append('g')
+  var bubbles = svg.append('g')
     .selectAll("dot")
     .data(data)
     .join("circle")
@@ -187,7 +189,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr('font-size', 15)
 
     let ticked = () => {
-    circles.attr('cx', (data) => {
+    bubbles.attr('cx', (data) => {
             return data.x
         })
         .attr('cy', (data) => {
@@ -202,4 +204,4 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
         });
       }
 
-})
+}) // After loading data
