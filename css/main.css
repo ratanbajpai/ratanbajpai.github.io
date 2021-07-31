@@ -2,6 +2,13 @@
   max-width: max-content;
   margin: auto;
 } */
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: left;
+}
 .bubbles {
   stroke-width: 2px;
   stroke: white;
