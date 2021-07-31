@@ -93,7 +93,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // Create a tooltip div. This is hidden by default.
   // Add the style to this div through the tooltip class
   // const tooltip = d3.select("#my_dataviz")
-  const tooltip = d3.select('#chart_area')
+  const tooltip = d3.select('#main_content')
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
