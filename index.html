@@ -35,7 +35,7 @@
   <div id="main_content" class="content">
     <div style="height: 95%">
 
-      <h1>Per capita GDP and working hours in OECD countries.</h1>
+      <h1>Per capita GDP and working hours in OECD countries</h1>
 
       <p>This presentation attempts to find any correlation between the number of annual
         hours worked per worker and the per capita GDP in OECD countries. The Organiation
@@ -52,43 +52,39 @@
       <p>
         The source for data used in this visualisation is from:
         <a href="https://www.rug.nl/ggdc/productivity/pwt/">
-                Groningen Growth and Development Center</a>)
-        This is a large dataset with several fields for various economic and developmental
-        parameters. The total dataset spans almost last 70 years. However, data related to
-        number of annual hours worked is somewhat limited. This specific information is not
-        available for a group of countries prior to 1990s.
-      </p>
+          Groningen Growth and Development Center</a>)
+          This is a large dataset with several fields for various economic and developmental
+          parameters. The total dataset spans almost last 70 years. However, data related to
+          number of annual hours worked is somewhat limited. This specific information is not
+          available for a group of countries prior to 1990s.
+        </p>
 
-      <h2>Visualization</h2>
-
+        <h2>Visualization</h2>
         <p>This <b>Interactive Slideshow</b> visualisation allows the user to step through the three available years
           while providing the ability to explore the data at each time point.
           The visualisation also provides some annotations detailing some interesting findings within the data.
         </p>
-
-        <br>
 
         <p>It can be seen from the interactive slideshow that the various regions of the world have widely differing
           trends towards urbanisation. Some regions are currently quite rural (for example Sub-Saharan Africa)
           with a significant trend towards urbanisation while other regions are already highly urbanised (for
           example Middle East & North Africa), possibly due to lack of space or habitable space and are continuing
           that trend.
-
         </p>
 
         <div class="visual">
-        <nav aria-label="Page navigation example">
-          <ul class="pagination justify-content-center">
-            <li class="page-item prev"><a class="page-link" onclick="prevYear()" tabindex="-1">Previous</a></li>
-            <li class="page-item nonClick active"><a class="page-link" onclick="updateSVG('1980')">1980</a></li>
-            <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2000')">2000</a></li>
-            <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2019')">2019</a></li>
-            <li class="page-item next"><a class="page-link" onclick="nextYear()">Next</a>
-            </li>
-          </ul>
-        </nav>
-        <!-- Main div for the bubble plot -->
-        <div id="bubble_plot"></div>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item prev"><a class="page-link" onclick="prevYear()" tabindex="-1">Previous</a></li>
+              <li class="page-item nonClick active"><a class="page-link" onclick="updateSVG('1980')">1980</a></li>
+              <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2000')">2000</a></li>
+              <li class="page-item nonClick"><a class="page-link" onclick="updateSVG('2019')">2019</a></li>
+              <li class="page-item next"><a class="page-link" onclick="nextYear()">Next</a>
+              </li>
+            </ul>
+          </nav>
+          <!-- Main div for the bubble plot -->
+          <div id="bubble_plot"></div>
         </div>
 
         <h2>Observations</h2>
