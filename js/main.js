@@ -165,7 +165,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
 
   // Add dots
   // Fill-opacity can change the transparency of the circles
-  var bubbles = svg.append('g')
+  svg.append('g')
     .selectAll("dot")
     .data(data)
     .join("circle")
@@ -180,7 +180,8 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
     .on("mousemove", moveTooltip )
     .on("mouseleave", hideTooltip )
 
-    let texts = svg.selectAll(null)
+    // let texts = svg.selectAll("dot")
+    svg.selectAll("dot")
     .data(data)
     .enter()
     .append('text')
@@ -188,7 +189,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
     .attr('color', 'black')
     .attr('font-size', 15)
 
-    let ticked = () => {
+    /* let ticked = () => {
     bubbles.attr('cx', (data) => {
             return data.x
         })
@@ -202,6 +203,6 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
         .attr('y', (data) => {
             return data.y
         });
-      }
+      } */
 
 }) // After loading data
