@@ -40,7 +40,7 @@ function make_y_gridlines() {
   return d3.axisLeft(y).ticks(10)
 }
 
-function updateChart(year) {
+function initChart(year) {
   console.log(year);
   // Add active class to the current button (highlight it)
   var header = document.getElementById("pages");
@@ -53,8 +53,59 @@ function updateChart(year) {
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
+
+      // Now we need to update data based on what year was clicked
+      updateChart(year);
     });
   }
+}
+
+function updateChart(year) {
+  if (year === "1980") {
+    svg.append('g')
+    .selectAll("dot")
+    .data(data)
+    .join("circle")
+    .attr("class", "bubbles")
+    .attr("cx", d => x(d.gdp_pc_1980))
+    .attr("cy", d => y(d.avh_1980))
+    .attr("r", d => z(d.pop_1980))
+    .attr('fill-opacity', 0.8)
+    .style("fill", d => myColor(d.continent))
+    // Trigger the tooltip functions
+    .on("mouseover", showTooltip )
+    .on("mousemove", moveTooltip )
+    .on("mouseleave", hideTooltip )
+  } else if (year === "2000") {
+    svg.append('g')
+    .selectAll("dot")
+    .data(data)
+    .join("circle")
+    .attr("class", "bubbles")
+    .attr("cx", d => x(d.gdp_pc_2000))
+    .attr("cy", d => y(d.avh_2000))
+    .attr("r", d => z(d.pop_2000))
+    .attr('fill-opacity', 0.8)
+    .style("fill", d => myColor(d.continent))
+    // Trigger the tooltip functions
+    .on("mouseover", showTooltip )
+    .on("mousemove", moveTooltip )
+    .on("mouseleave", hideTooltip )
+  } else if (year === "2019")
+  svg.append('g')
+  .selectAll("dot")
+  .data(data)
+  .join("circle")
+  .attr("class", "bubbles")
+  .attr("cx", d => x(d.gdp_pc_2019))
+  .attr("cy", d => y(d.avh_2019))
+  .attr("r", d => z(d.pop_2019))
+  .attr('fill-opacity', 0.8)
+  .style("fill", d => myColor(d.continent))
+  // Trigger the tooltip functions
+  .on("mouseover", showTooltip )
+  .on("mousemove", moveTooltip )
+  .on("mouseleave", hideTooltip )
 }
 
 // Get the data from github gist to avoid the cors issue
@@ -166,9 +217,9 @@ svg.append('g')
 .data(data)
 .join("circle")
 .attr("class", "bubbles")
-.attr("cx", d => x(d.gdp_pc_2019))
-.attr("cy", d => y(d.avh_2019))
-.attr("r", d => z(d.pop_2019))
+.attr("cx", d => x(d.gdp_pc_1980))
+.attr("cy", d => y(d.avh_1980))
+.attr("r", d => z(d.pop_1980))
 .attr('fill-opacity', 0.8)
 .style("fill", d => myColor(d.continent))
 // Trigger the tooltip functions
