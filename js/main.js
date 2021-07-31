@@ -32,6 +32,11 @@ const y = d3.scaleLinear()
 .domain([1200, 2800])
 .range([ height, 0]);
 
+// Add a scale the size of bubbles
+const z = d3.scaleLinear()
+.domain([0, 1500])
+.range([ 4, 30]);
+
 // gridlines in x axis function
 function make_x_gridlines() {
   return d3.axisBottom(x).ticks(10)
@@ -40,6 +45,40 @@ function make_x_gridlines() {
 // gridlines in y axis function
 function make_y_gridlines() {
   return d3.axisLeft(y).ticks(10)
+}
+
+// Create 3 functions to show / update (when mouse moves but stays
+// on same circle) / hide the tooltip
+const showTooltip = function(d) {
+  tooltip
+  .transition()
+  .duration(200)
+  tooltip
+  .style("opacity", 1)
+  .html("Country: " + d.country
+  + "<br>" + "Population in millions: "+ Math.ceil(d.pop_2019)
+  + "<br>" + "Average annual hours: " + d.avh_2019)
+  // .style("left", (event.x)/2 + "px")
+  // .style("top", (event.y)/2+30 + "px")
+  .style("left", (d3.mouse(this)[0]+90) + "px")
+  .style("top", (d3.mouse(this)[1]+200) + "px")
+  // .style("right", d3.select(this).attr("cx") + "px")
+  // .style("top", d3.select(this).attr("cy") + "px");
+}
+const moveTooltip = function(d) {
+  tooltip
+  // .style("left", (event.x)/2 + "px")
+  // .style("top", (event.y)/2+30 + "px")
+  .style("left", (d3.mouse(this)[0]+90) + "px")
+  .style("top", (d3.mouse(this)[1]+200) + "px")
+  // .style("right", d3.select(this).attr("cx") + "px")
+  // .style("top", d3.select(this).attr("cy") + "px");
+}
+const hideTooltip = function(d) {
+  tooltip
+  .transition()
+  .duration(200)
+  .style("opacity", 0)
 }
 
 function initChart(year) {
@@ -178,40 +217,6 @@ const tooltip = d3.select('#main_content')
 .append("div")
 .style("opacity", 0)
 .attr("class", "tooltip")
-
-// Create 3 functions to show / update (when mouse moves but stays
-// on same circle) / hide the tooltip
-const showTooltip = function(d) {
-  tooltip
-  .transition()
-  .duration(200)
-  tooltip
-  .style("opacity", 1)
-  .html("Country: " + d.country
-  + "<br>" + "Population in millions: "+ Math.ceil(d.pop_2019)
-  + "<br>" + "Average annual hours: " + d.avh_2019)
-  // .style("left", (event.x)/2 + "px")
-  // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+90) + "px")
-  .style("top", (d3.mouse(this)[1]+200) + "px")
-  // .style("right", d3.select(this).attr("cx") + "px")
-  // .style("top", d3.select(this).attr("cy") + "px");
-}
-const moveTooltip = function(d) {
-  tooltip
-  // .style("left", (event.x)/2 + "px")
-  // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+90) + "px")
-  .style("top", (d3.mouse(this)[1]+200) + "px")
-  // .style("right", d3.select(this).attr("cx") + "px")
-  // .style("top", d3.select(this).attr("cy") + "px");
-}
-const hideTooltip = function(d) {
-  tooltip
-  .transition()
-  .duration(200)
-  .style("opacity", 0)
-}
 
 // Add the bubbles
 // Fill-opacity can change the transparency of the circles
