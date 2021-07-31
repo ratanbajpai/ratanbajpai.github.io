@@ -8,101 +8,75 @@ const svg = d3.select("#bubble_plot")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    // .attr("width", width)
-    // .attr("height", height)
-    // .attr("preserveAspectRatio", "xMinYMin meet")
-    // .attr("viewBox", "0 0 1050 800")
   .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+    .attr("transform", "translate( + margin.left + "," + margin.top + )");
 
 // Axes scales
 const x = d3.scaleLinear()
   .domain([0, 110000])
   .range([ 0, width ]);
 
-  const y = d3.scaleLinear()
-    .domain([1200, 2800])
-    .range([ height, 0]);
+const y = d3.scaleLinear()
+  .domain([1200, 2800])
+  .range([ height, 0]);
 
-    // gridlines in x axis function
-    function make_x_gridlines() {
-        return d3.axisBottom(x)
-            .ticks(10)
-    }
+// gridlines in x axis function
+function make_x_gridlines() {
+    return d3.axisBottom(x).ticks(10)
+}
 
-    // gridlines in y axis function
-    function make_y_gridlines() {
-        return d3.axisLeft(y)
-            .ticks(10)
-    }
+// gridlines in y axis function
+function make_y_gridlines() {
+    return d3.axisLeft(y).ticks(10)
+}
 
-function setupSVG(year) {}
+function updateChart(year) {}
 
 // Get the data from github gist to avoid the cors issue
-d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv").then( function(data) {
+d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv")
+  .then( function(data) {
 
-  // add the X gridlines
+  // Add the x gridlines
   svg.append("g")
-      .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
-      .call(make_x_gridlines()
-          .tickSize(-height)
-          .tickFormat("")
-      )
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + height + ")")
+    .call(make_x_gridlines()
+      .tickSize(-height)
+      .tickFormat("")
+    )
 
-  // add the Y gridlines
+  // Add the y gridlines
   svg.append("g")
-      .attr("class", "grid")
-      .call(make_y_gridlines()
-          .tickSize(-width)
-          .tickFormat("")
-      )
+    .attr("class", "grid")
+    .call(make_y_gridlines()
+      .tickSize(-width)
+      .tickFormat("")
+    )
 
-  // Add X axis
+  // Add x axis
   svg.append("g")
-    .attr("transform", `translate(0, ${height})`)
+    .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
-    // text label for the x axis
-    svg.append("text")
-      .attr("transform",
-          "translate(" + (width/2) + " ," +
+  // Text label for the x axis
+  svg.append("text")
+    .attr("transform", "translate(" + (width/2) + " ," +
           (height + 50) + ")")
-      //                   (height + margin.top + 20) + ")")
     .style("text-anchor", "middle")
     .text("Per Capita GDP (in 2017 US$)");
 
-    // text label for the y axis
-/* svg.append("text")
-    .attr("class", "axisText")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 0 - margin.left)
-    .attr("x", 0 - (height / 2))
-    .attr("dy", "1em")
-    .style("text-anchor", "middle")
-    .text("GDP Per Capita (in 2017 US$)"); */
-
-  // Add Y axis
+  // Add y axis
   svg.append("g")
     .call(d3.axisLeft(y));
 
-    // text label for the y axis
-    svg.append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 0 - margin.left - 5)
-      .attr("x",0 - (height / 2))
-      .attr("dy", "1em")
-      .style("text-anchor", "middle")
-      .text("Average annual hours (per worker)");
-
-    // text label for the x axis
-    /* svg.append("text")
-      .attr("class", "axisText")
-      .attr("transform",
-        "translate(" + (width / 2) + " ," +
-        (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .text("Average annual hours per worker"); */
+    // Text label for the y axis
+  svg.append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left - 5)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Average annual hours (per worker)");
 
   // Add a scale the size of bubbles
   const z = d3.scaleLinear()
@@ -112,12 +86,14 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // Add a scale for the color of bubbles
   const myColor = d3.scaleOrdinal()
     .domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
+    // Custom colors can be added as below
     // .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
     .range(d3.schemeSet2);
 
-  // -1- Create a tooltip div that is hidden by default:
+  // Create a tooltip div. This is hidden by default.
+  // Add the style to this div through the tooltip class
   // const tooltip = d3.select("#my_dataviz")
-  const tooltip = d3.select('body')
+  const tooltip = d3.select('#bubble_plot')
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
