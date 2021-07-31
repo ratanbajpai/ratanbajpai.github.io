@@ -145,7 +145,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     tooltip
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
+      .style("right", (d3.mouse(this)[0]+30) + "px")
       .style("top", (d3.mouse(this)[1]+30) + "px")
   }
   const hideTooltip = function(event, d) {
