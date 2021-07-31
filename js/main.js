@@ -22,22 +22,6 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x));
 
-    // text label for the x axis
-    svg.append("text")
-      .attr("class", "axisText")
-      .attr("transform",
-        "translate(" + (width / 2) + " ," +
-        (height + margin.top + 30) + ")")
-      .style("text-anchor", "middle")
-      .text("Average annual hours per worker");
-
-  // Add Y axis
-  const y = d3.scaleLinear()
-    .domain([1200, 2800])
-    .range([ height, 0]);
-  svg.append("g")
-    .call(d3.axisLeft(y));
-
     // text label for the y axis
 svg.append("text")
     .attr("class", "axisText")
@@ -46,7 +30,23 @@ svg.append("text")
     .attr("x", 0 - (height / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
-    .text("GDP per capita (in 2017 US$)");
+    .text("GDP Per Capita (in 2017 US$)");
+
+  // Add Y axis
+  const y = d3.scaleLinear()
+    .domain([1200, 2800])
+    .range([ height, 0]);
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+    // text label for the x axis
+    svg.append("text")
+      .attr("class", "axisText")
+      .attr("transform",
+        "translate(" + (width / 2) + " ," +
+        (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .text("Average annual hours per worker");
 
   // Add a scale the size of bubbles
   const z = d3.scaleLinear()
