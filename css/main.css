@@ -69,17 +69,35 @@ h2 {
   display: inline-block;
 }
 .btn-link {
-  border: none;
-  outline: none;
-  padding: 10px 16px;
-  background-color: #f1f1f1;
+  /* border: none; */
+  border: 1px solid #ddd;
+  /* outline: none; */
+  /* padding: 10px 16px; */
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  /* background-color: #f1f1f1; */
   cursor: pointer;
-  font-size: 18px;
+  /* font-size: 18px; */
 }
-.active, .btn-link:hover {
+/* .active, .btn-link:hover {
   background-color: #666;
   color: white;
+} */
+.active {
+  background-color: #5DADE2;
+  color: white;
 }
+.btn-link:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.btn-link:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.btn-link:hover:not(.active) {background-color: #ddd;}
 /* .pagination button {
   color: black;
   float: left;
