@@ -21,6 +21,8 @@ const svg = d3.select("#bubble_plot")
 .attr("width", height)
 .style("fill", "#F8F8F8") */
 
+var lData;
+
 // Axes scales
 const x = d3.scaleLinear()
 .domain([0, 110000])
@@ -64,7 +66,7 @@ function updateChart(year) {
   if (year === "1980") {
     svg.append('g')
     .selectAll("dot")
-    .data(data)
+    .data(lData)
     .join("circle")
     .attr("class", "bubbles")
     .attr("cx", d => x(d.gdp_pc_1980))
@@ -79,7 +81,7 @@ function updateChart(year) {
   } else if (year === "2000") {
     svg.append('g')
     .selectAll("dot")
-    .data(data)
+    .data(lData)
     .join("circle")
     .attr("class", "bubbles")
     .attr("cx", d => x(d.gdp_pc_2000))
@@ -94,7 +96,7 @@ function updateChart(year) {
   } else if (year === "2019")
   svg.append('g')
   .selectAll("dot")
-  .data(data)
+  .data(lData)
   .join("circle")
   .attr("class", "bubbles")
   .attr("cx", d => x(d.gdp_pc_2019))
@@ -112,6 +114,7 @@ function updateChart(year) {
 d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv")
 .then( function(data) {
 
+  lData = data;
   // Add the x gridlines
   svg.append("g")
   .attr("class", "grid")
