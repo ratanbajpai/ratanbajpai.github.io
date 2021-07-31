@@ -178,4 +178,28 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .on("mousemove", moveTooltip )
     .on("mouseleave", hideTooltip )
 
-  })
+    let texts = svg.selectAll(null)
+    .data(data)
+    .enter()
+    .append('text')
+    .text(d => d.country)
+    .attr('color', 'black')
+    .attr('font-size', 15)
+
+    let ticked = () => {
+    circles.attr('cx', (data) => {
+            return data.x
+        })
+        .attr('cy', (data) => {
+            return data.y
+        });
+
+    texts.attr('x', (data) => {
+            return data.x
+        })
+        .attr('y', (data) => {
+            return data.y
+        });
+      }
+
+// })
