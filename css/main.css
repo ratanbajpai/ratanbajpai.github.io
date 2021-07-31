@@ -74,6 +74,7 @@ h2 {
   padding: 8px 16px;
   text-decoration: none;
   border: 1px solid #ddd;
+  cursor: pointer;
 }
 .pagination a.active {
   background-color: #5DADE2;
