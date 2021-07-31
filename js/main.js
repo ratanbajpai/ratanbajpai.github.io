@@ -98,30 +98,30 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .style("opacity", 0)
       .attr("class", "tooltip")
 
-  // -2- Create 3 functions to show / update (when mouse move but stay
+  // Create 3 functions to show / update (when mouse moves but stays
   // on same circle) / hide the tooltip
-  const showTooltip = function(d) {
+  const showTooltip = function(event, d) {
     tooltip
       .transition()
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Country: " + d.country + "<br>" + "Population in millions: "
-        + Math.ceil(d.pop_2019)
+      .html("Country: " + d.country
+        + "<br>" + "Population in millions: "+ Math.ceil(d.pop_2019)
         + "<br>" + "Average annual hours: " + d.avh_2019)
-      //.style("left", (event.x)/2 + "px")
-      //.style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2+30 + "px")
+      // .style("left", (d3.mouse(this)[0]+30) + "px")
+      // .style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
-  const moveTooltip = function(d) {
+  const moveTooltip = function(event, d) {
     tooltip
-      //.style("left", (event.x)/2 + "px")
-      //.style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2+30 + "px")
+      //.style("left", (d3.mouse(this)[0]+30) + "px")
+      //.style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
@@ -148,30 +148,5 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
     .on("mouseleave", hideTooltip )
-
-    // let texts = svg.selectAll("dot")
-    svg.selectAll("dot")
-    .data(data)
-    .enter()
-    .append('text')
-    .text(d => d.country)
-    .attr('color', 'black')
-    .attr('font-size', 15)
-
-    /* let ticked = () => {
-    bubbles.attr('cx', (data) => {
-            return data.x
-        })
-        .attr('cy', (data) => {
-            return data.y
-        });
-
-    texts.attr('x', (data) => {
-            return data.x
-        })
-        .attr('y', (data) => {
-            return data.y
-        });
-      } */
 
 }) // After loading data
