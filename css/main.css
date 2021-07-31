@@ -68,10 +68,19 @@ h2 {
 .pagination {
   display: inline-block;
 }
-.page-link {
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
   cursor: pointer;
+  font-size: 18px;
 }
-.pagination button {
+.active, .btn:hover {
+  background-color: #666;
+  color: white;
+}
+/* .pagination button {
   color: black;
   float: left;
   padding: 8px 16px;
@@ -90,4 +99,4 @@ h2 {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.pagination button:hover:not(.active) {background-color: #ddd;}
+.pagination button:hover:not(.active) {background-color: #ddd;} */
