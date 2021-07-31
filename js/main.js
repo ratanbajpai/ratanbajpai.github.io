@@ -39,9 +39,7 @@ const x = d3.scaleLinear()
 function setupSVG(year) {}
 
 // Get the data from github gist to avoid the cors issue
-d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
-  + "c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/
-  + "DVFinalProjectData.csv").then( function(data) {
+d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv").then( function(data) {
 
   // add the X gridlines
   svg.append("g")
