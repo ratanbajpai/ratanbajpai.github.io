@@ -68,13 +68,15 @@ h2 {
 .pagination {
   display: inline-block;
 }
+.page-link {
+  cursor: pointer;
+}
 .pagination button {
   color: black;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
   border: 1px solid #ddd;
-  cursor: pointer;
 }
 .pagination button.active {
   background-color: #5DADE2;
