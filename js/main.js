@@ -37,6 +37,13 @@ const z = d3.scaleLinear()
 .domain([0, 1500])
 .range([ 4, 30]);
 
+// Add a scale for the color of bubbles
+const myColor = d3.scaleOrdinal()
+.domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
+// Custom colors can be added as below
+// .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
+.range(d3.schemeSet2);
+
 // gridlines in x axis function
 function make_x_gridlines() {
   return d3.axisBottom(x).ticks(10)
@@ -197,18 +204,6 @@ svg.append("text")
 .attr("dy", "1em")
 .style("text-anchor", "middle")
 .text("Average Annual Hours (per worker)");
-
-// Add a scale the size of bubbles
-const z = d3.scaleLinear()
-.domain([0, 1500])
-.range([ 4, 30]);
-
-// Add a scale for the color of bubbles
-const myColor = d3.scaleOrdinal()
-.domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
-// Custom colors can be added as below
-// .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
-.range(d3.schemeSet2);
 
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
