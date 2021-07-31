@@ -44,7 +44,7 @@ function updateChart(year) {
   console.log(year);
   // Add active class to the current button (highlight it)
   var header = document.getElementById("pages");
-  var btns = header.getElementsByClassName("page-link");
+  var btns = header.getElementsByClassName("btn-link");
   for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
       var current = document.getElementsByClassName("active");
