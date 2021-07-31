@@ -11,6 +11,15 @@ const svg = d3.select("#bubble_plot")
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
+// Axes scales
+const x = d3.scaleLinear()
+  .domain([0, 110000])
+  .range([ 0, width ]);
+
+  const y = d3.scaleLinear()
+    .domain([1200, 2800])
+    .range([ height, 0]);
+
     // gridlines in x axis function
     function make_x_gridlines() {
         return d3.axisBottom(x)
@@ -22,7 +31,7 @@ const svg = d3.select("#bubble_plot")
         return d3.axisLeft(y)
             .ticks(5)
     }
-    
+
 // Get the data from github gist to avoid the cors issue
 d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv").then( function(data) {
 
@@ -44,9 +53,6 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       )
 
   // Add X axis
-  const x = d3.scaleLinear()
-    .domain([0, 110000])
-    .range([ 0, width ]);
   svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x));
@@ -70,9 +76,6 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .text("GDP Per Capita (in 2017 US$)"); */
 
   // Add Y axis
-  const y = d3.scaleLinear()
-    .domain([1200, 2800])
-    .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
