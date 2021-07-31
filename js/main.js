@@ -27,7 +27,7 @@ const x = d3.scaleLinear()
     // gridlines in x axis function
     function make_x_gridlines() {
         return d3.axisBottom(x)
-            .ticks(5)
+            .ticks(10)
     }
 
     // gridlines in y axis function
