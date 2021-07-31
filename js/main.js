@@ -9,7 +9,7 @@ const svg = d3.select("#bubble_plot")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", "translate( + margin.left + "," + margin.top + )");
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Axes scales
 const x = d3.scaleLinear()
@@ -97,11 +97,6 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
-  //    .style("background-color", "white")
-  //    .style("border-radius", "5px")
-  //    .style("padding", "10px")
-  //    .style("color", "black")
-  //    .style("position", "absolute")
 
   // -2- Create 3 functions to show / update (when mouse move but stay
   // on same circle) / hide the tooltip
