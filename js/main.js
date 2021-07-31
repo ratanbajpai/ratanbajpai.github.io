@@ -9,7 +9,7 @@ const svg = d3.select("#bubble_plot")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", `translate(100, 50)`);
+    .attr("transform", `translate(100, 10)`);
     // .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Add the grey background that makes ggplot2 famous
