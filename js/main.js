@@ -11,6 +11,15 @@ const svg = d3.select("#bubble_plot")
   .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+    // Add the grey background that makes ggplot2 famous
+    svg
+      .append("rect")
+        .attr("x",0)
+        .attr("y",0)
+        .attr("height", height)
+        .attr("width", height)
+        .style("fill", "EBEBEB")
+        
 // Axes scales
 const x = d3.scaleLinear()
   .domain([0, 110000])
