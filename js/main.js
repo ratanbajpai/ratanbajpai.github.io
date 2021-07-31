@@ -6,10 +6,10 @@ const margin = {top: 50, right: 50, bottom: 50, left: 50},
 // Add svg object to the bubble plot div
 const svg = d3.select("#bubble_plot")
   .append("svg")
-    // .attr("width", width + margin.left + margin.right)
-    // .attr("height", height + margin.top + margin.bottom)
-    .attr("width", width)
-    .attr("height", height)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    // .attr("width", width)
+    // .attr("height", height)
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 

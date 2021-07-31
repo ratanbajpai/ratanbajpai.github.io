@@ -1,3 +1,7 @@
+body {
+  max-width: max-content;
+  margin: auto;
+}
 .bubbles {
   stroke-width: 2px;
   stroke: white;
