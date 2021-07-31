@@ -76,7 +76,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .style("position", "absolute")
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
-  const showTooltip = function(event, d) {
+  const showTooltip = function(d) {
     tooltip
       .transition()
       .duration(200)
