@@ -36,7 +36,7 @@ const x = d3.scaleLinear()
             .ticks(10)
     }
 
-function setupSVG() {}
+function setupSVG(year) {}
 
 // Get the data from github gist to avoid the cors issue
 d3.csv("https://gist.githubusercontent.com/ratanbajpai/"
