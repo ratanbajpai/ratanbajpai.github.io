@@ -68,7 +68,7 @@ h2 {
 .pagination {
   display: inline-block;
 }
-.btn {
+.btn-link {
   border: none;
   outline: none;
   padding: 10px 16px;
@@ -76,7 +76,7 @@ h2 {
   cursor: pointer;
   font-size: 18px;
 }
-.active, .btn:hover {
+.active, .btn-link:hover {
   background-color: #666;
   color: white;
 }
