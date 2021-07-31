@@ -29,6 +29,7 @@
     border-color: black;
     border-radius: 4px;
     pointer-events: none;
+    vertical-align: middle;
 }
 </style>
 
@@ -96,7 +97,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     tooltip
       .style("opacity", 1)
       .html("Country: " + d.country + "<br>" + "Population in millions: " + Math.ceil(d.pop_2019)
-        + "<br>" + "Average annual hours:" + d.avh_2019)
+        + "<br>" + "Average annual hours: " + d.avh_2019)
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
       .style("left", (d3.mouse(this)[0]+30) + "px")
