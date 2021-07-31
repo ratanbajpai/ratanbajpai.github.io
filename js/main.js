@@ -38,7 +38,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // add the X gridlines
   svg.append("g")
       .attr("class", "grid")
-      .attr("transform", "translate(0," + height + ")")
+      //.attr("transform", "translate(0," + height + ")")
       .call(make_x_gridlines()
           .tickSize(-height)
           .tickFormat("")
@@ -59,9 +59,9 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
     // text label for the x axis
     svg.append("text")
-      .attr("transform",
-          "translate(" + (width/2) + " ," +
-                         (height + margin.top + 20) + ")")
+      //.attr("transform",
+      //    "translate(" + (width/2) + " ," +
+      //                   (height + margin.top + 20) + ")")
     .style("text-anchor", "middle")
     .text("GDP Per Capita (in 2017 US$)");
 
