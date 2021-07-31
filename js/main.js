@@ -1,17 +1,17 @@
 // Margins and dimensions for the bubble plot
-const margin = {top: 50, right: 50, bottom: 50, left: 50},
+const margin = {top: 50, right: 50, bottom: 50, left: 70},
     width = 800 - margin.left - margin.right,
     height = 672 - margin.top - margin.bottom;
 
 // Add svg object to the bubble plot div
 const svg = d3.select("#bubble_plot")
   .append("svg")
-    // .attr("width", width + margin.left + margin.right)
-    // .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
     // .attr("width", width)
     // .attr("height", height)
-    .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 1050 800")
+    // .attr("preserveAspectRatio", "xMinYMin meet")
+    // .attr("viewBox", "0 0 1050 800")
   .append("g")
     .attr("transform", `translate(${margin.left},${margin.top})`);
 
