@@ -70,7 +70,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
           (height + 50) + ")")
       //                   (height + margin.top + 20) + ")")
     .style("text-anchor", "middle")
-    .text("GDP Per Capita (in 2017 US$)");
+    .text("Per Capita GDP (in 2017 US$)");
 
     // text label for the y axis
 /* svg.append("text")
@@ -93,7 +93,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Average annual hours per worker");
+      .text("Average annual hours (per worker)");
 
     // text label for the x axis
     /* svg.append("text")
