@@ -54,3 +54,6 @@ h2 {
 .grid path {
   stroke-width: 0;
 }
+.axisText {
+    font: 10px sans-serif;
+}

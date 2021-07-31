@@ -19,7 +19,7 @@ const svg = d3.select("#bubble_plot")
         .attr("height", height)
         .attr("width", height)
         .style("fill", "EBEBEB")
-        
+
 // Axes scales
 const x = d3.scaleLinear()
   .domain([0, 110000])
@@ -69,6 +69,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
   // Text label for the x axis
   svg.append("text")
+    .attr("class", "axisText")
     .attr("transform", "translate(" + (width/2) + " ," +
           (height + 50) + ")")
     .style("text-anchor", "middle")
@@ -80,6 +81,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
     // Text label for the y axis
   svg.append("text")
+    .attr("class", "axisText")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left - 5)
     .attr("x",0 - (height / 2))
