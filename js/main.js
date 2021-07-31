@@ -40,7 +40,9 @@ function make_y_gridlines() {
     return d3.axisLeft(y).ticks(10)
 }
 
-function updateChart(year) {}
+function updateChart(year) {
+  console.log(year);
+}
 
 // Get the data from github gist to avoid the cors issue
 d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv")
@@ -88,7 +90,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr("x",0 - (height / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
-    .text("Average annual hours (per worker)");
+    .text("Average Annual Hours (per worker)");
 
   // Add a scale the size of bubbles
   const z = d3.scaleLinear()
