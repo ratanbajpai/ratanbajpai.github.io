@@ -74,7 +74,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left - 5)
     .attr("x",0 - (height / 2))
-    .attr("dy", "2em")
+    .attr("dy", "1em")
     .style("text-anchor", "middle")
     .text("Average annual hours (per worker)");
 
@@ -93,7 +93,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // Create a tooltip div. This is hidden by default.
   // Add the style to this div through the tooltip class
   // const tooltip = d3.select("#my_dataviz")
-  const tooltip = d3.select('#bubble_plot')
+  const tooltip = d3.select('body')
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
