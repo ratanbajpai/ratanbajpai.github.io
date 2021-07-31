@@ -68,7 +68,7 @@ h2 {
 .pagination {
   display: inline-block;
 }
-.pagination a {
+.pagination page-link {
   color: black;
   float: left;
   padding: 8px 16px;
@@ -76,16 +76,16 @@ h2 {
   border: 1px solid #ddd;
   cursor: pointer;
 }
-.pagination a.active {
+.pagination page-link.active {
   background-color: #5DADE2;
   color: white;
 }
-.pagination a:first-child {
+.pagination page-link:first-child {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
-.pagination a:last-child {
+.pagination page-link:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination page-link:hover:not(.active) {background-color: #ddd;}
