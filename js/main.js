@@ -74,7 +74,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left - 5)
     .attr("x",0 - (height / 2))
-    //.attr("dy", "1em")
+    .attr("dy", "2em")
     .style("text-anchor", "middle")
     .text("Average annual hours (per worker)");
 
@@ -100,7 +100,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
   // Create 3 functions to show / update (when mouse moves but stays
   // on same circle) / hide the tooltip
-  const showTooltip = function(event, d) {
+  const showTooltip = function(d) {
     tooltip
       .transition()
       .duration(200)
@@ -109,19 +109,19 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .html("Country: " + d.country
         + "<br>" + "Population in millions: "+ Math.ceil(d.pop_2019)
         + "<br>" + "Average annual hours: " + d.avh_2019)
-      .style("left", (event.x)/2 + "px")
-      .style("top", (event.y)/2+30 + "px")
-      // .style("left", (d3.mouse(this)[0]+30) + "px")
-      // .style("top", (d3.mouse(this)[1]+30) + "px")
+      // .style("left", (event.x)/2 + "px")
+      // .style("top", (event.y)/2+30 + "px")
+      .style("left", (d3.mouse(this)[0]+30) + "px")
+      .style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
-  const moveTooltip = function(event, d) {
+  const moveTooltip = function(d) {
     tooltip
-      .style("left", (event.x)/2 + "px")
-      .style("top", (event.y)/2+30 + "px")
-      //.style("left", (d3.mouse(this)[0]+30) + "px")
-      //.style("top", (d3.mouse(this)[1]+30) + "px")
+      // .style("left", (event.x)/2 + "px")
+      // .style("top", (event.y)/2+30 + "px")
+      .style("left", (d3.mouse(this)[0]+30) + "px")
+      .style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
@@ -132,7 +132,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .style("opacity", 0)
   }
 
-  // Add dots
+  // Add the bubbles
   // Fill-opacity can change the transparency of the circles
   svg.append('g')
     .selectAll("dot")
@@ -144,7 +144,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .attr("r", d => z(d.pop_2019))
       .attr('fill-opacity', 0.8)
       .style("fill", d => myColor(d.continent))
-    // -3- Trigger the functions
+    // Trigger the tooltip functions
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
     .on("mouseleave", hideTooltip )
