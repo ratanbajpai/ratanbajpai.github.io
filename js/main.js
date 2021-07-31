@@ -129,7 +129,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 
   // -2- Create 3 functions to show / update (when mouse move but stay
   // on same circle) / hide the tooltip
-  const showTooltip = function(d) {
+  const showTooltip = function(event, d) {
     tooltip
       .transition()
       .duration(200)
@@ -138,19 +138,19 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
       .html("Country: " + d.country + "<br>" + "Population in millions: "
         + Math.ceil(d.pop_2019)
         + "<br>" + "Average annual hours: " + d.avh_2019)
-      // .style("left", (event.x)/2 + "px")
-      // .style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2+30 + "px")
+      // .style("left", (d3.mouse(this)[0]+30) + "px")
+      // .style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
   const moveTooltip = function(event, d) {
     tooltip
-      // .style("left", (event.x)/2 + "px")
-      // .style("top", (event.y)/2+30 + "px")
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (event.x)/2 + "px")
+      .style("top", (event.y)/2+30 + "px")
+      // .style("left", (d3.mouse(this)[0]+30) + "px")
+      // .style("top", (d3.mouse(this)[1]+30) + "px")
       // .style("right", d3.select(this).attr("cx") + "px")
       // .style("top", d3.select(this).attr("cy") + "px");
   }
