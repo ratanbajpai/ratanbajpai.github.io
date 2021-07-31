@@ -33,7 +33,7 @@ const x = d3.scaleLinear()
     // gridlines in y axis function
     function make_y_gridlines() {
         return d3.axisLeft(y)
-            .ticks(5)
+            .ticks(10)
     }
 
 function setupSVG() {}
