@@ -11,6 +11,7 @@ h2 {
 }
 .center {
   text-align: center;
+  margin-top: 10px;
 }
 .bubbles {
   stroke-width: 2px;
@@ -75,5 +76,12 @@ h2 {
   background-color: #5DADE2;
   color: white;
 }
-
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 .pagination a:hover:not(.active) {background-color: #ddd;}
