@@ -5,7 +5,7 @@
 <script src="https://d3js.org/d3.v5.js"></script>
 
 <!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
+<div id="my_dataviz" class="content"></div>
 
 <!-- A bit of CSS: change stroke color of circle on hover (white -> black) -->
 <style>
@@ -18,11 +18,11 @@
   }
   .tooltip {
     position: absolute;
-    width: 150px;
+    width: 180px;
     height: 56px;
     padding: 5px;
     font: 12px sans-serif;
-    background: lightblue;
+    background: aliceblue;
     border: 1px solid black;
     opacity: 0.5;
     text-align: left;
@@ -30,6 +30,12 @@
     border-radius: 4px;
     pointer-events: none;
     vertical-align: middle;
+}
+.content {
+  max-width: 960px;
+  margin: auto;
+  background: white;
+  padding: 10px;
 }
 </style>
 
