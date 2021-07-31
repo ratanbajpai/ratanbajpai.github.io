@@ -22,12 +22,31 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x));
 
+    // text label for the x axis
+    svg.append("text")
+      .attr("class", "axisText")
+      .attr("transform",
+        "translate(" + (width / 2) + " ," +
+        (height + margin.top + 30) + ")")
+      .style("text-anchor", "middle")
+      .text("Average annual hours per worker");
+
   // Add Y axis
   const y = d3.scaleLinear()
     .domain([1200, 2800])
     .range([ height, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
+
+    // text label for the y axis
+svg.append("text")
+    .attr("class", "axisText")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left)
+    .attr("x", 0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("GDP per capita (in 2017 US$)");
 
   // Add a scale the size of bubbles
   const z = d3.scaleLinear()
@@ -37,8 +56,8 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   // Add a scale for the color of bubbles
   const myColor = d3.scaleOrdinal()
     .domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
-    .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
-    // .range(d3.schemeSet2);
+    // .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
+    .range(d3.schemeSet2);
 
   // -1- Create a tooltip div that is hidden by default:
   // const tooltip = d3.select("#my_dataviz")
@@ -52,14 +71,16 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   //    .style("color", "black")
   //    .style("position", "absolute")
 
-  // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
+  // -2- Create 3 functions to show / update (when mouse move but stay
+  // on same circle) / hide the tooltip
   const showTooltip = function(d) {
     tooltip
       .transition()
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Country: " + d.country + "<br>" + "Population in millions: " + Math.ceil(d.pop_2019)
+      .html("Country: " + d.country + "<br>" + "Population in millions: "
+        + Math.ceil(d.pop_2019)
         + "<br>" + "Average annual hours: " + d.avh_2019)
       // .style("left", (event.x)/2 + "px")
       // .style("top", (event.y)/2+30 + "px")
