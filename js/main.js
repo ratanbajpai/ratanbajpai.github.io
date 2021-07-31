@@ -9,7 +9,8 @@ const svg = d3.select("#bubble_plot")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(100, 100)`);
+    // .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     // Add the grey background that makes ggplot2 famous
     /* svg
@@ -83,7 +84,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   svg.append("text")
     .attr("class", "axisText")
     .attr("transform", "rotate(-90)")
-    .attr("y", 0 - margin.left - 2)
+    .attr("y", 0 - margin.left + 2)
     .attr("x",0 - (height / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
