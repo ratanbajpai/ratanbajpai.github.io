@@ -83,9 +83,9 @@ const showTooltip = function(d) {
   tooltip
   .style("opacity", 1)
   .html("<b>" + "Country: " + d.country + "</b>"
-  + "<br>" + "Population in millions: "+ Math.ceil(pop)
+  + "<br>" + "Population (in millions): "+ Math.ceil(pop)
   + "<br>" + "Average annual hours worked: " + avg_hours
-  + "<br>" + "Per capita GDP: " + gdp_pc)
+  + "<br>" + "Per capita GDP (2017 USD): " + gdp_pc)
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
   .style("left", (d3.mouse(this)[0]+275) + "px")
