@@ -69,7 +69,7 @@ const annot_2019 = [
 ];
 
 const makeAnnotations = d3.annotation()
-  .annotations(annotations);
+  .annotations(annot_2019);
 
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
