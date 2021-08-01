@@ -64,14 +64,14 @@ const annot_2019 = [
     {
     note: {
       label: "In Bangladesh Myanmar and Cambodia on average people work much longer hours while earning a lot less.",
-      title: "Bangladesh Myanmar Cambodia",
+      title: "Bangladesh, Myanmar & Cambodia",
       wrap: 200,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
 
     },
     color: ["#cc0000"],
     color: ["#cc0000"],
-   x: 25,
+   x: 30,
    y: 125,
    dy: -50,
    dx: 50,
@@ -79,9 +79,6 @@ const annot_2019 = [
    type: d3.annotationCalloutCircle,
  }
 ];
-
-const makeAnnotations = d3.annotation()
-  .annotations(annot_2019);
 
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
@@ -291,6 +288,8 @@ function updateChart(year) {
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip );
+      const makeAnnotations = d3.annotation()
+        .annotations(annot_2019);
       svg.append("g")
         .style("font-size", 12)
         .call(makeAnnotations);
