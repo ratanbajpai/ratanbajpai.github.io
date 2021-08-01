@@ -104,7 +104,7 @@ function initChart(year) {
       this.className += " active";
 
       // Now we need to update data based on what year was clicked
-      updateChart(year);
+      updateChart(target.innerText);
     });
   }
 }
