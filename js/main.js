@@ -37,7 +37,7 @@ const myColor = d3.scaleOrdinal()
     "South America", "Africa", "Oceania"])
   // Custom colors can be added as below
   // .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
-  .range(d3.schemeSet2);
+  .range(d3.schemeTableau10);
 
 // gridlines in x axis function
 function make_x_gridlines() {
