@@ -65,7 +65,7 @@ const annot_2019 = [
     note: {
       label: "In Bangladesh Myanmar and Cambodia on average people work much longer hours while earning a lot less.",
       title: "Bangladesh, Myanmar & Cambodia",
-      wrap: 200,  // try something smaller to see text split in several lines
+      wrap: 210,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
 
     },
