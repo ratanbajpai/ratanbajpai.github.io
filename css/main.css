@@ -62,8 +62,8 @@ h2 {
 .grid path {
   stroke-width: 0;
 }
-.axisText {
-    font: 15px sans-serif;
+.axisLabel {
+    font: 16px sans-serif;
 }
 .pagination {
   display: inline-block;

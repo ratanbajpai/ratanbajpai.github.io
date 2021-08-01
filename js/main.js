@@ -155,7 +155,7 @@ function updateChart(year) {
 
   // Text label for the x axis
   svg.append("text")
-    .attr("class", "axisText")
+    .attr("class", "axisLabel")
     .attr("transform", "translate(" + (width/2) + " ," +
       (height + 50) + ")")
     .style("text-anchor", "middle")
@@ -167,7 +167,7 @@ function updateChart(year) {
 
   // Text label for the y axis
   svg.append("text")
-    .attr("class", "axisText")
+    .attr("class", "axisLabel")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left + 2)
     .attr("x",0 - (height / 2))
