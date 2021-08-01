@@ -61,8 +61,6 @@ const annotations = [
   },
 ];
 
-const makeAnnotations = d3.annotation().annotations(annotations);
-
 /* const annot_2019 = [
     {
     note: {
@@ -276,6 +274,7 @@ function updateChart(year) {
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip );
+      const makeAnnotations = d3.annotation().annotations(annotations);
       svg.append("g")
         .call(makeAnnotations);
   } else if (year === "2019") {
