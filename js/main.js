@@ -292,6 +292,7 @@ function updateChart(year) {
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip );
       svg.append("g")
+        .style("font-size", 12)
         .call(makeAnnotations);
     }
 }
