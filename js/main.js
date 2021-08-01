@@ -88,7 +88,7 @@ const annot_2019 = [
     },
     color: ["#cc0000"],
     color: ["#cc0000"],
-    x: 525,
+    x: 527,
     y: 160,
     dy: -45,
     dx: 45,
