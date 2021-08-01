@@ -74,8 +74,8 @@ const annot_2019 = [
    x: 50,
    y: 50,
    dy: -50,
-   dx: -50,
-   subject: { radius: 50, radiusPadding: 10 },
+   dx: 50,
+   subject: { radius: 25, radiusPadding: 10 },
    type: d3.annotationCalloutCircle,
  }
 ];
