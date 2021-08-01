@@ -8,8 +8,8 @@ const svg = d3.select("#bubble_plot")
   .append("svg")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", `translate(100, 30)`);
+//  .append("g")
+//  .attr("transform", `translate(100, 30)`);
 // .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Variable to store dataset after loading
@@ -112,7 +112,8 @@ function initChart(year) {
 function updateChart(year) {
   // First remove all elements
   svg.selectAll("*").remove();
-
+  svg.append("g")
+    .attr("transform", `translate(100, 30)`);
   // Add the x gridlines
   svg.append("g")
     .attr("class", "grid")
