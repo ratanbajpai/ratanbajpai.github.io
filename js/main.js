@@ -110,6 +110,7 @@ function initChart(year) {
 }
 
 function updateChart(year) {
+  console.log("Year: " +year);
   // First remove all elements
   svg.selectAll("*").remove();
 
@@ -156,6 +157,37 @@ function updateChart(year) {
     .attr("dy", "1em")
     .style("text-anchor", "middle")
     .text("Average Annual Hours (per worker)");
+
+  // Add legend
+  var values = ["Asia", "Europe", "North America",
+    "South America", "Africa", "Oceania"];
+
+  // Usually you have a color scale in your chart already
+  var color = d3.scaleOrdinal()
+      .domain(keys)
+      .range(d3.schemeSet2);
+
+  // Add one dot in the legend for each name.
+  svg.selectAll("mydots")
+      .data(keys)
+      .enter()
+      .append("circle")
+      .attr("cx", width + 20)
+      .attr("cy", function (d, i) { return margin.top + i * 25 })
+      .attr("r", 7)
+      .style("fill", function (d) { return color(d) })
+
+  // Add one dot in the legend for each name.
+  svg.selectAll("mylabels")
+      .data(keys)
+      .enter()
+      .append("text")
+      .attr("x", width + 30)
+      .attr("y", function (d, i) { return margin.top + i * 25 })
+      .style("fill", function (d) { return color(d) })
+      .text(function (d) { return d })
+      .attr("text-anchor", "left")
+      .style("alignment-baseline", "middle")
 
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
