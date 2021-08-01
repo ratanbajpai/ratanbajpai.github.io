@@ -291,6 +291,11 @@ function updateChart(year) {
       .on("mouseleave", hideTooltip );
   } else if (year === "2019") {
     console.log("Year is 2019");
+    const makeAnnotations = d3.annotation()
+      .annotations(annot_2019);
+    svg.append("g")
+      .style("font-size", 12)
+      .call(makeAnnotations);
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
@@ -307,9 +312,6 @@ function updateChart(year) {
       .on("mouseleave", hideTooltip );
       const makeAnnotations = d3.annotation()
         .annotations(annot_2019);
-      svg.append("g")
-        .style("font-size", 12)
-        .call(makeAnnotations);
     }
 }
 
