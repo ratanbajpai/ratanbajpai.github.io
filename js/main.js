@@ -1,6 +1,6 @@
 // Margins and dimensions for the bubble plot
 const margin = {top: 50, right: 70, bottom: 70, left: 70},
-width = 800 - margin.left - margin.right,
+width = 850 - margin.left - margin.right,
 height = 672 - margin.top - margin.bottom;
 
 // Add svg object to the bubble plot div
@@ -183,12 +183,12 @@ function updateChart(year) {
       .data(values)
       .enter()
       .append("text")
-      .attr("x", width + 10)
+      .attr("x", width + 20)
       .attr("y", function (d, i) { return margin.top + i * 25 })
       .style("fill", function (d) { return myColor(d) })
       .text(function (d) { return d })
       .attr("text-anchor", "left")
-      .style("alignment-baseline", "alphabetic")
+      .style("alignment-baseline", "mathematical")
       .style("font-size", "14px")
 
   // Add the bubbles
