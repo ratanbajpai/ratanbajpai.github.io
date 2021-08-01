@@ -50,7 +50,20 @@ function make_y_gridlines() {
 }
 
 // Annotations
-const annot_2019 = [
+const annotations = [
+  {
+    note: { label: "Hi" },
+    x: 500,
+    y: 500,
+    dy: 137,
+    dx: 162,
+    subject: { radius: 50, radiusPadding: 10 },
+  },
+];
+
+const makeAnnotations = d3.annotation().annotations(annotations);
+
+/* const annot_2019 = [
     {
     note: {
       label: "In Bangladesh Myanmar and Cambodia on average people work longer hours while working less.",
@@ -69,7 +82,7 @@ const annot_2019 = [
 ];
 
 const makeAnnotations = d3.annotation()
-  .annotations(annot_2019);
+  .annotations(annot_2019); */
 
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
