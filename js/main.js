@@ -61,23 +61,40 @@ function make_y_gridlines() {
 ]; */
 
 const annot_2019 = [
-    {
+  {
     note: {
       label: "In Bangladesh Myanmar and Cambodia on average people work much longer hours while earning a lot less.",
-      title: "Bangladesh, Myanmar & Cambodia",
+      title: "Bangladesh, Myanmar & Cambodia.",
       wrap: 210,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
 
     },
     color: ["#cc0000"],
     color: ["#cc0000"],
-   x: 30,
-   y: 125,
-   dy: -45,
-   dx: 45,
-   subject: { radius: 25, radiusPadding: 10 },
-   type: d3.annotationCalloutCircle,
- }
+    x: 30,
+    y: 125,
+    dy: -25,
+    dx: 45,
+    subject: { radius: 25, radiusPadding: 10 },
+    type: d3.annotationCalloutCircle,
+  },
+  {
+    note: {
+      label: "In Singapore, even though incomes are high, people work longer hours.",
+      title: "Singapore",
+      wrap: 210,  // try something smaller to see text split in several lines
+      padding: 10   // More = text lower
+
+    },
+    color: ["#cc0000"],
+    color: ["#cc0000"],
+    x: 200,
+    y: 200,
+    dy: -45,
+    dx: 45,
+    subject: { radius: 25, radiusPadding: 10 },
+    type: d3.annotationCalloutCircle,
+  }
 ];
 
 // Create a tooltip div. This is hidden by default.
