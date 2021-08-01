@@ -174,8 +174,8 @@ function updateChart(year) {
       .append("rect")
       .attr("x", width + 20)
       .attr("y", function (d, i) { return margin.top + i * 25 })
-      .attr("width", 5)
-      .attr("height", 5)
+      .attr("width", 6)
+      .attr("height", 6)
       .style("fill", function (d) { return myColor(d) })
 
   // Add one dot in the legend for each name.
@@ -189,7 +189,7 @@ function updateChart(year) {
       .text(function (d) { return d })
       .attr("text-anchor", "left")
       .style("alignment-baseline", "middle")
-      .style("font-size", "10px")
+      .style("font-size", "14px")
 
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
