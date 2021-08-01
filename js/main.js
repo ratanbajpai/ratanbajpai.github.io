@@ -63,7 +63,7 @@ function make_y_gridlines() {
 const annot_2019 = [
     {
     note: {
-      label: "In Bangladesh Myanmar and Cambodia on average people work longer hours while working less.",
+      label: "In Bangladesh Myanmar and Cambodia on average people work much longer hours while earning a lot less.",
       title: "Bangladesh Myanmar Cambodia",
       wrap: 200,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
@@ -74,7 +74,8 @@ const annot_2019 = [
    x: 100,
    y: 100,
    dy: 50,
-   dx: 50
+   dx: 50,
+   subject: { radius: 50, radiusPadding: 10 }
  }
 ];
 
