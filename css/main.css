@@ -25,9 +25,9 @@ h2 {
 }
 .tooltip {
   position: absolute;
-  width: 160px;
+  width: 180px;
   height: 60px;
-  padding: 5px;
+  padding: 10px;
   font: 14px sans-serif;
   line-height: 1.5;
   background: aliceblue;

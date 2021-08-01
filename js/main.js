@@ -79,7 +79,7 @@ const showTooltip = function(d) {
   .duration(200)
   tooltip
   .style("opacity", 1)
-  .html("Country: " + d.country
+  .html("<b>" + "Country: " + d.country + "</b>"
   + "<br>" + "Population in millions: "+ Math.ceil(pop)
   + "<br>" + "Average annual hours: " + avg_hours)
   // .style("left", (event.x)/2 + "px")
