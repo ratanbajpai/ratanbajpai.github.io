@@ -18,7 +18,7 @@ h2 {
 }
 .bubbles {
   stroke-width: 2px;
-  stroke: white;
+  stroke: grey;
 }
 .bubbles:hover {
   stroke: black;
