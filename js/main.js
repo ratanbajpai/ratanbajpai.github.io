@@ -52,7 +52,7 @@ function make_y_gridlines() {
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
 // const tooltip = d3.select("#my_dataviz")
-const tooltip = d3.select('#chart_area')
+const tooltip = d3.select('#bubble_plot')
   .append("div")
   .style("opacity", 0)
   .attr("class", "tooltip")
