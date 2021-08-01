@@ -161,8 +161,8 @@ function updateChart(year) {
     .text("Average Annual Hours (per worker)");
 
   // Add legend
-  var values = ["Asia", "Europe", "North America",
-    "South America", "Africa", "Oceania"];
+  var values = ["Africa", "Europe", "North America",
+    "South America", "Asia", "Oceania"];
 
   // Usually you have a color scale in your chart already
   /* var color = d3.scaleOrdinal()
