@@ -84,8 +84,8 @@ const showTooltip = function(d) {
   + "<br>" + "Average annual hours: " + d.avg_hours)
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+120) + "px")
-  .style("top", (d3.mouse(this)[1]+600) + "px")
+  .style("left", (d3.mouse(this)[0]+300) + "px")
+  .style("top", (d3.mouse(this)[1]+550) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
@@ -93,8 +93,8 @@ const moveTooltip = function(d) {
   tooltip
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+120) + "px")
-  .style("top", (d3.mouse(this)[1]+600) + "px")
+  .style("left", (d3.mouse(this)[0]+300) + "px")
+  .style("top", (d3.mouse(this)[1]+550) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
