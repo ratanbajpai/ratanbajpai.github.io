@@ -164,7 +164,7 @@ function updateChart(year) {
 
   // Usually you have a color scale in your chart already
   var color = d3.scaleOrdinal()
-      .domain(keys)
+      .domain(values)
       .range(d3.schemeSet2);
 
   // Add one dot in the legend for each name.
