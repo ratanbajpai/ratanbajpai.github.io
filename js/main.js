@@ -8,7 +8,6 @@ const svg = d3.select("#bubble_plot")
   .append("svg")
   //.attr("width", width + margin.left + margin.right)
   //.attr("height", height + margin.top + margin.bottom)
-  //.attr("preserveAspectRatio", "xMinYMin meet")
   .attr("viewBox", "0 0 960 680")
   .append("g")
   .attr("transform", `translate(100, 30)`);
@@ -164,13 +163,8 @@ function updateChart(year) {
   var values = ["Africa", "Europe", "North America",
     "South America", "Asia", "Oceania"];
 
-  // Usually you have a color scale in your chart already
-  /* var color = d3.scaleOrdinal()
-      .domain(values)
-      .range(d3.schemeSet2); */
-
-  // Add one dot in the legend for each name.
-  svg.selectAll("mydots")
+  // Add legend squares for each continent
+  svg.selectAll("legend")
       .data(values)
       .enter()
       .append("rect")
@@ -180,8 +174,8 @@ function updateChart(year) {
       .attr("height", 6)
       .style("fill", function (d) { return myColor(d) })
 
-  // Add one dot in the legend for each name.
-  svg.selectAll("mylabels")
+  // Add label for each continent
+  svg.selectAll("labels")
       .data(values)
       .enter()
       .append("text")
