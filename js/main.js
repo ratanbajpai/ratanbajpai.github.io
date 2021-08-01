@@ -79,7 +79,7 @@ const annot_2019 = [
  }
 ];
 
-const makeAnnotations = d3.annotation()
+const makeAnnotations = d3.annotationCalloutCircle()
   .annotations(annot_2019);
 
 // Create a tooltip div. This is hidden by default.
