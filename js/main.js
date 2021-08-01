@@ -291,7 +291,7 @@ function updateChart(year) {
       .on("mouseleave", hideTooltip )
   } else if (year === "2000") {
     const makeAnnot00 = d3.annotation()
-      .annotations(annot_2019);
+      .annotations(annot_2000);
     svg.append("g")
       .style("font-size", 12)
       .call(makeAnnot00);
