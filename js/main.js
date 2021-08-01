@@ -110,9 +110,9 @@ const annot_2000 = [
     color: ["#cc0000"],
     x: 250,
     y: 450,
-    dy: -60,
-    dx: 50,
-    subject: { radius: 30, radiusPadding: 10 },
+    dy: -100,
+    dx: 100,
+    subject: { radius: 40, radiusPadding: 10 },
     type: d3.annotationCalloutCircle,
   }
 ];
@@ -293,6 +293,11 @@ function updateChart(year) {
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
   if (year === "1980") {
+    const makeAnnot80 = d3.annotation()
+      .annotations(annot_1980);
+    svg.append("g")
+      .style("font-size", 12)
+      .call(makeAnnot80);
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
