@@ -205,7 +205,7 @@ function updateChart(year) {
         .attr("cx", d => x(d.gdp_pc_1980))
         .attr("cy", d => y(d.avh_1980))
         .attr("r", d => z(d.pop_1980))
-        .attr('fill-opacity', 1.0)
+        .attr('fill-opacity', 0.85)
         .style("fill", d => myColor(d.continent))
       // Trigger the tooltip functions
       .on("mouseover", showTooltip )
@@ -221,7 +221,7 @@ function updateChart(year) {
         .attr("cx", d => x(d.gdp_pc_2000))
         .attr("cy", d => y(d.avh_2000))
         .attr("r", d => z(d.pop_2000))
-        .attr('fill-opacity', 1.0)
+        .attr('fill-opacity', 0.85)
         .style("fill", d => myColor(d.continent))
       // Trigger the tooltip functions
       .on("mouseover", showTooltip )
@@ -237,7 +237,7 @@ function updateChart(year) {
         .attr("cx", d => x(d.gdp_pc_2019))
         .attr("cy", d => y(d.avh_2019))
         .attr("r", d => z(d.pop_2019))
-        .attr('fill-opacity', 1.0)
+        .attr('fill-opacity', 0.85)
         .style("fill", d => myColor(d.continent))
       // Trigger the tooltip functions
       .on("mouseover", showTooltip )
