@@ -5,44 +5,37 @@ height = 672 - margin.top - margin.bottom;
 
 // Add svg object to the bubble plot div
 const svg = d3.select("#bubble_plot")
-.append("svg")
-.attr("width", width + margin.left + margin.right)
-.attr("height", height + margin.top + margin.bottom)
-.append("g")
-.attr("transform", `translate(100, 30)`);
+  .append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", `translate(100, 30)`);
 // .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Add the grey background that makes ggplot2 famous
-/* svg
-.append("rect")
-.attr("x",0)
-.attr("y",0)
-.attr("height", height)
-.attr("width", height)
-.style("fill", "#F8F8F8") */
-
-var lData;
+// Variable to store dataset after loading
+var loadedData;
 
 // Axes scales
 const x = d3.scaleLinear()
-.domain([0, 110000])
-.range([ 0, width ]);
+  .domain([0, 110000])
+  .range([ 0, width ]);
 
 const y = d3.scaleLinear()
-.domain([1200, 2800])
-.range([ height, 0]);
+  .domain([1200, 2800])
+  .range([ height, 0]);
 
-// Add a scale the size of bubbles
+// Add a z scale for the size of bubbles
 const z = d3.scaleLinear()
-.domain([0, 1500])
-.range([ 4, 30]);
+  .domain([0, 1500])
+  .range([ 4, 30]);
 
 // Add a scale for the color of bubbles
 const myColor = d3.scaleOrdinal()
-.domain(["Asia", "Europe", "North America", "South America", "Africa", "Oceania"])
-// Custom colors can be added as below
-// .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
-.range(d3.schemeSet2);
+  .domain(["Asia", "Europe", "North America",
+    "South America", "Africa", "Oceania"])
+  // Custom colors can be added as below
+  // .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
+  .range(d3.schemeSet2);
 
 // gridlines in x axis function
 function make_x_gridlines() {
@@ -53,6 +46,14 @@ function make_x_gridlines() {
 function make_y_gridlines() {
   return d3.axisLeft(y).ticks(10)
 }
+
+// Create a tooltip div. This is hidden by default.
+// Add the style to this div through the tooltip class
+// const tooltip = d3.select("#my_dataviz")
+const tooltip = d3.select('#main_content')
+  .append("div")
+  .style("opacity", 0)
+  .attr("class", "tooltip")
 
 // Create 3 functions to show / update (when mouse moves but stays
 // on same circle) / hide the tooltip
@@ -109,125 +110,109 @@ function initChart(year) {
 }
 
 function updateChart(year) {
+  // First remove all elements
+  svg.selectAll("*").remove();
+
+  // Add the x gridlines
+  svg.append("g")
+    .attr("class", "grid")
+    .attr("transform", "translate(0," + height + ")")
+    .call(make_x_gridlines()
+    .tickSize(-height)
+    .tickFormat("")
+  )
+
+  // Add the y gridlines
+  svg.append("g")
+    .attr("class", "grid")
+    .call(make_y_gridlines()
+    .tickSize(-width)
+    .tickFormat("")
+  )
+
+  // Add x axis
+  svg.append("g")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+
+  // Text label for the x axis
+  svg.append("text")
+    .attr("class", "axisText")
+    .attr("transform", "translate(" + (width/2) + " ," +
+      (height + 50) + ")")
+    .style("text-anchor", "middle")
+    .text("Per Capita GDP (in 2017 US$)");
+
+  // Add y axis
+  svg.append("g")
+    .call(d3.axisLeft(y));
+
+  // Text label for the y axis
+  svg.append("text")
+    .attr("class", "axisText")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0 - margin.left + 2)
+    .attr("x",0 - (height / 2))
+    .attr("dy", "1em")
+    .style("text-anchor", "middle")
+    .text("Average Annual Hours (per worker)");
+
+  // Add the bubbles
+  // Fill-opacity can change the transparency of the circles
   if (year === "1980") {
     svg.append('g')
-    .selectAll("dot")
-    .data(lData)
-    .join("circle")
-    .attr("class", "bubbles")
-    .attr("cx", d => x(d.gdp_pc_1980))
-    .attr("cy", d => y(d.avh_1980))
-    .attr("r", d => z(d.pop_1980))
-    .attr('fill-opacity', 0.8)
-    .style("fill", d => myColor(d.continent))
-    // Trigger the tooltip functions
-    .on("mouseover", showTooltip )
-    .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip )
+      .selectAll("dot")
+      .data(loadedData)
+      .join("circle")
+      .attr("class", "bubbles")
+      .attr("cx", d => x(d.gdp_pc_1980))
+      .attr("cy", d => y(d.avh_1980))
+      .attr("r", d => z(d.pop_1980))
+      .attr('fill-opacity', 0.8)
+      .style("fill", d => myColor(d.continent))
+      // Trigger the tooltip functions
+      .on("mouseover", showTooltip )
+      .on("mousemove", moveTooltip )
+      .on("mouseleave", hideTooltip )
   } else if (year === "2000") {
     svg.append('g')
-    .selectAll("dot")
-    .data(lData)
-    .join("circle")
-    .attr("class", "bubbles")
-    .attr("cx", d => x(d.gdp_pc_2000))
-    .attr("cy", d => y(d.avh_2000))
-    .attr("r", d => z(d.pop_2000))
-    .attr('fill-opacity', 0.8)
-    .style("fill", d => myColor(d.continent))
-    // Trigger the tooltip functions
-    .on("mouseover", showTooltip )
-    .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip )
+      .selectAll("dot")
+      .data(loadedData)
+      .join("circle")
+      .attr("class", "bubbles")
+      .attr("cx", d => x(d.gdp_pc_2000))
+      .attr("cy", d => y(d.avh_2000))
+      .attr("r", d => z(d.pop_2000))
+      .attr('fill-opacity', 0.8)
+      .style("fill", d => myColor(d.continent))
+      // Trigger the tooltip functions
+      .on("mouseover", showTooltip )
+      .on("mousemove", moveTooltip )
+      .on("mouseleave", hideTooltip )
   } else if (year === "2019")
-  svg.append('g')
-  .selectAll("dot")
-  .data(lData)
-  .join("circle")
-  .attr("class", "bubbles")
-  .attr("cx", d => x(d.gdp_pc_2019))
-  .attr("cy", d => y(d.avh_2019))
-  .attr("r", d => z(d.pop_2019))
-  .attr('fill-opacity', 0.8)
-  .style("fill", d => myColor(d.continent))
-  // Trigger the tooltip functions
-  .on("mouseover", showTooltip )
-  .on("mousemove", moveTooltip )
-  .on("mouseleave", hideTooltip )
+    svg.append('g')
+      .selectAll("dot")
+      .data(loadedData)
+      .join("circle")
+      .attr("class", "bubbles")
+      .attr("cx", d => x(d.gdp_pc_2019))
+      .attr("cy", d => y(d.avh_2019))
+      .attr("r", d => z(d.pop_2019))
+      .attr('fill-opacity', 0.8)
+      .style("fill", d => myColor(d.continent))
+      // Trigger the tooltip functions
+      .on("mouseover", showTooltip )
+      .on("mousemove", moveTooltip )
+      .on("mouseleave", hideTooltip )
 }
 
 // Get the data from github gist to avoid the cors issue
 d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c8ef0bc8/raw/d827cf69156bdccc1103a0f6734c56dfb0128d12/DVFinalProjectData.csv")
 .then( function(data) {
 
-  lData = data;
-  // Add the x gridlines
-  svg.append("g")
-  .attr("class", "grid")
-  .attr("transform", "translate(0," + height + ")")
-  .call(make_x_gridlines()
-  .tickSize(-height)
-  .tickFormat("")
-)
-
-// Add the y gridlines
-svg.append("g")
-.attr("class", "grid")
-.call(make_y_gridlines()
-.tickSize(-width)
-.tickFormat("")
-)
-
-// Add x axis
-svg.append("g")
-.attr("transform", "translate(0," + height + ")")
-.call(d3.axisBottom(x));
-
-// Text label for the x axis
-svg.append("text")
-.attr("class", "axisText")
-.attr("transform", "translate(" + (width/2) + " ," +
-(height + 50) + ")")
-.style("text-anchor", "middle")
-.text("Per Capita GDP (in 2017 US$)");
-
-// Add y axis
-svg.append("g")
-.call(d3.axisLeft(y));
-
-// Text label for the y axis
-svg.append("text")
-.attr("class", "axisText")
-.attr("transform", "rotate(-90)")
-.attr("y", 0 - margin.left + 2)
-.attr("x",0 - (height / 2))
-.attr("dy", "1em")
-.style("text-anchor", "middle")
-.text("Average Annual Hours (per worker)");
-
-// Create a tooltip div. This is hidden by default.
-// Add the style to this div through the tooltip class
-// const tooltip = d3.select("#my_dataviz")
-const tooltip = d3.select('#main_content')
-.append("div")
-.style("opacity", 0)
-.attr("class", "tooltip")
-
-// Add the bubbles
-// Fill-opacity can change the transparency of the circles
-svg.append('g')
-.selectAll("dot")
-.data(data)
-.join("circle")
-.attr("class", "bubbles")
-.attr("cx", d => x(d.gdp_pc_1980))
-.attr("cy", d => y(d.avh_1980))
-.attr("r", d => z(d.pop_1980))
-.attr('fill-opacity', 0.8)
-.style("fill", d => myColor(d.continent))
-// Trigger the tooltip functions
-.on("mouseover", showTooltip )
-.on("mousemove", moveTooltip )
-.on("mouseleave", hideTooltip )
+  // Set the data variable
+  loadData = data;
+  // Call method to update chart
+  updateChart("1980");
 
 }) // After loading data
