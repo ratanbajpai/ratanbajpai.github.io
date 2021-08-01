@@ -159,7 +159,7 @@ function updateChart(year) {
 
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
-  /* if (year === "1980") {
+  if (year === "1980") {
     console.log("Year is 1980");
     svg.append('g')
       .selectAll("dot")
@@ -207,7 +207,7 @@ function updateChart(year) {
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip )
-    } */
+    }
 }
 
 // Get the data from github gist to avoid the cors issue
@@ -215,12 +215,12 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
 .then( function(data) {
 
   // Set the data variable
-  loadData = data;
+  loadedData = data;
   console.log("Going to update chart");
   // Call method to update chart
   updateChart("1980");
 
-  svg.append('g')
+  /* svg.append('g')
     .selectAll("dot")
     .data(data)
     .join("circle")
@@ -233,7 +233,7 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
     // Trigger the tooltip functions
     .on("mouseover", showTooltip )
     .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip )
+    .on("mouseleave", hideTooltip ) */
 
 
 }) // After loading data
