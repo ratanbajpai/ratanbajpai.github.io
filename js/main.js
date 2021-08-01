@@ -1,6 +1,6 @@
 // Margins and dimensions for the bubble plot
 const margin = {top: 50, right: 70, bottom: 70, left: 70},
-width = 800 - margin.left - margin.right,
+width = 960 - margin.left - margin.right,
 height = 672 - margin.top - margin.bottom;
 
 // Add svg object to the bubble plot div
