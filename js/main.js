@@ -111,7 +111,7 @@ function initChart(year) {
 
 function updateChart(year) {
   // First remove all elements
-  // svg.selectAll("*").remove();
+  svg.selectAll("*").remove();
 
   // Add the x gridlines
   svg.append("g")
@@ -180,7 +180,8 @@ function updateChart(year) {
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
-      .join("circle")
+      .enter()
+      .append("circle")
         .attr("class", "bubbles")
         .attr("cx", d => x(d.gdp_pc_2000))
         .attr("cy", d => y(d.avh_2000))
