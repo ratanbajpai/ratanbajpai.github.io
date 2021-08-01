@@ -1,5 +1,5 @@
 // Margins and dimensions for the bubble plot
-const margin = {top: 50, right: 10, bottom: 70, left: 70},
+const margin = {top: 50, right: 100, bottom: 70, left: 70},
 width = 800 - margin.left - margin.right,
 height = 672 - margin.top - margin.bottom;
 
