@@ -33,8 +33,8 @@ const z = d3.scaleLinear()
 
 // Add a scale for the color of bubbles
 const myColor = d3.scaleOrdinal()
-  .domain(["Africa", "Europe", "North America",
-    "South America", "Asia", "Oceania"])
+  .domain(["Asia", "Europe", "North America",
+    "South America", "Africa", "Oceania"])
   // Custom colors can be added as below
   // .range(["#A07A19", "#AC30C0", "#EB9A72", "#BA86F5", "#EA22A8", "#F08080"]);
   .range(d3.schemeTableau10);
