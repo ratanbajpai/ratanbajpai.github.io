@@ -72,7 +72,7 @@ const annot_2019 = [
     color: ["#cc0000"],
     color: ["#cc0000"],
    x: 50,
-   y: 50,
+   y: 100,
    dy: -50,
    dx: 50,
    subject: { radius: 25, radiusPadding: 10 },
