@@ -1,5 +1,5 @@
 // Margins and dimensions for the bubble plot
-const margin = {top: 50, right: 120, bottom: 70, left: 70},
+const margin = {top: 50, right: 70, bottom: 70, left: 70},
 width = 800 - margin.left - margin.right,
 height = 672 - margin.top - margin.bottom;
 
@@ -159,11 +159,11 @@ function updateChart(year) {
     .text("Average Annual Hours (per worker)");
 
   // Add legend
-  /* var values = ["Asia", "Europe", "North America",
+  var values = ["Asia", "Europe", "North America",
     "South America", "Africa", "Oceania"];
 
   // Usually you have a color scale in your chart already
-  var color = d3.scaleOrdinal()
+  /* var color = d3.scaleOrdinal()
       .domain(values)
       .range(d3.schemeSet2); */
 
@@ -189,6 +189,7 @@ function updateChart(year) {
       .text(function (d) { return d })
       .attr("text-anchor", "left")
       .style("alignment-baseline", "middle")
+      .style("font-size", "10px")
 
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
