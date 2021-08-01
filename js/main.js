@@ -109,11 +109,29 @@ const annot_2000 = [
     color: ["#cc0000"],
     color: ["#cc0000"],
     x: 250,
+    y: 450,
+    dy: -60,
+    dx: 50,
+    subject: { radius: 30, radiusPadding: 10 },
+    type: d3.annotationCalloutCircle,
+  }
+];
+
+const annot_1980 = [
+  {
+    note: {
+      label: "Prior to 1990s fewer OECD countries participated in labor related data collection.",
+      title: "Labor Data Participation",
+      wrap: 215,  // try something smaller to see text split in several lines
+      padding: 10   // More = text lower
+
+    },
+    color: ["#cc0000"],
+    color: ["#cc0000"],
+    x: 250,
     y: 300,
     dy: -45,
     dx: 45,
-    subject: { radius: 25, radiusPadding: 10 },
-    type: d3.annotationCalloutCircle,
   }
 ];
 
