@@ -50,8 +50,7 @@ function make_y_gridlines() {
 }
 
 // Annotations
-const annotations = [
-  {
+/*  {
     note: { label: "Hi" },
     x: 500,
     y: 500,
@@ -59,9 +58,9 @@ const annotations = [
     dx: 162,
     subject: { radius: 50, radiusPadding: 10 },
   },
-];
+]; */
 
-/* const annot_2019 = [
+const annot_2019 = [
     {
     note: {
       label: "In Bangladesh Myanmar and Cambodia on average people work longer hours while working less.",
@@ -72,15 +71,15 @@ const annotations = [
     },
     color: ["#cc0000"],
     color: ["#cc0000"],
-   x: 500,
-   y: 500,
-   dy: 100,
-   dx: 100
+   x: 100,
+   y: 100,
+   dy: 50,
+   dx: 50
  }
 ];
 
 const makeAnnotations = d3.annotation()
-  .annotations(annot_2019); */
+  .annotations(annot_2019);
 
 // Create a tooltip div. This is hidden by default.
 // Add the style to this div through the tooltip class
@@ -274,9 +273,6 @@ function updateChart(year) {
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip );
-      const makeAnnotations = d3.annotation().annotations(annotations);
-      svg.append("g")
-        .call(makeAnnotations);
   } else if (year === "2019") {
     console.log("Year is 2019");
     svg.append('g')
@@ -292,7 +288,9 @@ function updateChart(year) {
       // Trigger the tooltip functions
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
-      .on("mouseleave", hideTooltip )
+      .on("mouseleave", hideTooltip );
+      svg.append("g")
+        .call(makeAnnotations);
     }
 }
 
