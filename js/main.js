@@ -172,7 +172,7 @@ function updateChart(year) {
       .data(values)
       .enter()
       .append("rect")
-      .attr("x", width + 20)
+      .attr("x", width + 10)
       .attr("y", function (d, i) { return margin.top + i * 25 })
       .attr("width", 6)
       .attr("height", 6)
@@ -183,12 +183,12 @@ function updateChart(year) {
       .data(values)
       .enter()
       .append("text")
-      .attr("x", width + 30)
+      .attr("x", width + 10)
       .attr("y", function (d, i) { return margin.top + i * 25 })
       .style("fill", function (d) { return myColor(d) })
       .text(function (d) { return d })
       .attr("text-anchor", "left")
-      .style("alignment-baseline", "middle")
+      .style("alignment-baseline", "alphabetic")
       .style("font-size", "14px")
 
   // Add the bubbles
