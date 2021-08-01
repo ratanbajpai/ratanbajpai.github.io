@@ -75,11 +75,12 @@ const annot_2019 = [
    y: 100,
    dy: 50,
    dx: 50,
-   subject: { radius: 50, radiusPadding: 10 }
+   subject: { radius: 50, radiusPadding: 10 },
+   type: d3.annotationCalloutCircle,
  }
 ];
 
-const makeAnnotations = d3.annotationCalloutCircle()
+const makeAnnotations = d3.annotation()
   .annotations(annot_2019);
 
 // Create a tooltip div. This is hidden by default.
