@@ -6,8 +6,10 @@ height = 672 - margin.top - margin.bottom;
 // Add svg object to the bubble plot div
 const svg = d3.select("#bubble_plot")
   .append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
+  //.attr("width", width + margin.left + margin.right)
+  //.attr("height", height + margin.top + margin.bottom)
+  .attr("preserveAspectRatio", "xMinYMin meet")
+  .attr("viewBox", "0 0 1050 800")
   .append("g")
   .attr("transform", `translate(100, 30)`);
 // .attr("transform", `translate(${margin.left}, ${margin.top})`);
