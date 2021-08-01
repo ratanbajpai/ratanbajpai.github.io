@@ -69,8 +69,8 @@ const showTooltip = function(d) {
   + "<br>" + "Average annual hours: " + d.avh_2019)
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+90) + "px")
-  .style("top", (d3.mouse(this)[1]+200) + "px")
+  .style("left", (d3.mouse(this)[0]+100) + "px")
+  .style("top", (d3.mouse(this)[1]+500) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
@@ -78,8 +78,8 @@ const moveTooltip = function(d) {
   tooltip
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+90) + "px")
-  .style("top", (d3.mouse(this)[1]+200) + "px")
+  .style("left", (d3.mouse(this)[0]+100) + "px")
+  .style("top", (d3.mouse(this)[1]+500) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
@@ -249,21 +249,5 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   console.log("Going to update chart");
   // Call method to update chart
   updateChart("1980");
-
-  /* svg.append('g')
-    .selectAll("dot")
-    .data(data)
-    .join("circle")
-      .attr("class", "bubbles")
-      .attr("cx", d => x(d.gdp_pc_1980))
-      .attr("cy", d => y(d.avh_1980))
-      .attr("r", d => z(d.pop_1980))
-      .attr('fill-opacity', 0.8)
-      .style("fill", d => myColor(d.continent))
-    // Trigger the tooltip functions
-    .on("mouseover", showTooltip )
-    .on("mousemove", moveTooltip )
-    .on("mouseleave", hideTooltip ) */
-
 
 }) // After loading data
