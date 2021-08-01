@@ -120,8 +120,8 @@ const annot_2000 = [
 const annot_1980 = [
   {
     note: {
-      label: "Prior to 1990s fewer OECD countries participated in labor related data collection.",
-      title: "Labor Data Participation",
+      label: "In the 1980s workers in most countries were working on an average over 1800 hours annually.",
+      title: "Higher Average Hours Worked",
       wrap: 215,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
 
@@ -260,7 +260,7 @@ function updateChart(year) {
     .attr("x",0 - (height / 2))
     .attr("dy", "1em")
     .style("text-anchor", "middle")
-    .text("Average Annual Hours (per worker)");
+    .text("Average Annual Hours Worked (per worker)");
 
   // Add legend
   var values = ["Africa", "Europe", "North America",
