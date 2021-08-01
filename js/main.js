@@ -90,8 +90,28 @@ const annot_2019 = [
     color: ["#cc0000"],
     x: 528,
     y: 160,
-    dy: -25,
-    dx: 25,
+    dy: -30,
+    dx: 30,
+    subject: { radius: 25, radiusPadding: 10 },
+    type: d3.annotationCalloutCircle,
+  }
+];
+
+const annot_2000 = [
+  {
+    note: {
+      label: "Most advanced European economies enjoy higher incomes while working lower hours.",
+      title: "Europe",
+      wrap: 215,  // try something smaller to see text split in several lines
+      padding: 10   // More = text lower
+
+    },
+    color: ["#cc0000"],
+    color: ["#cc0000"],
+    x: 250,
+    y: 300,
+    dy: -45,
+    dx: 45,
     subject: { radius: 25, radiusPadding: 10 },
     type: d3.annotationCalloutCircle,
   }
@@ -158,7 +178,6 @@ const hideTooltip = function(d) {
 }
 
 function initChart(year) {
-  console.log(year);
   // Add active class to the current button (highlight it)
   var header = document.getElementById("pages");
   var btns = header.getElementsByClassName("btn-link");
@@ -167,7 +186,6 @@ function initChart(year) {
       e = e || window.event;
       var target = e.target || e.srcElement;
       chartYear = target.innerText;
-      console.log("value of the element clicked== "+chartYear);
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
@@ -179,7 +197,6 @@ function initChart(year) {
 }
 
 function updateChart(year) {
-  console.log("Year: " +year);
   // First remove all elements
   svg.selectAll("*").remove();
 
@@ -258,7 +275,6 @@ function updateChart(year) {
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
   if (year === "1980") {
-    console.log("Year is 1980");
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
@@ -274,7 +290,11 @@ function updateChart(year) {
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip )
   } else if (year === "2000") {
-    console.log("Year is 2000");
+    const makeAnnot00 = d3.annotation()
+      .annotations(annot_2019);
+    svg.append("g")
+      .style("font-size", 12)
+      .call(makeAnnot00);
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
@@ -290,12 +310,11 @@ function updateChart(year) {
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip );
   } else if (year === "2019") {
-    console.log("Year is 2019");
-    const makeAnnotations = d3.annotation()
+    const makeAnnot19 = d3.annotation()
       .annotations(annot_2019);
     svg.append("g")
       .style("font-size", 12)
-      .call(makeAnnotations);
+      .call(makeAnnot19);
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
