@@ -9,7 +9,7 @@ const svg = d3.select("#bubble_plot")
   //.attr("width", width + margin.left + margin.right)
   //.attr("height", height + margin.top + margin.bottom)
   //.attr("preserveAspectRatio", "xMinYMin meet")
-  .attr("viewBox", "0 0 1000 700")
+  .attr("viewBox", "0 0 960 680")
   .append("g")
   .attr("transform", `translate(100, 30)`);
 // .attr("transform", `translate(${margin.left}, ${margin.top})`);
