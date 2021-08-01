@@ -159,13 +159,12 @@ function updateChart(year) {
 
   // Add the bubbles
   // Fill-opacity can change the transparency of the circles
-  if (year === "1980") {
+  /* if (year === "1980") {
     console.log("Year is 1980");
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
-      .enter()
-      .append("circle")
+      .join("circle")
         .attr("class", "bubbles")
         .attr("cx", d => x(d.gdp_pc_1980))
         .attr("cy", d => y(d.avh_1980))
@@ -181,8 +180,7 @@ function updateChart(year) {
     svg.append('g')
       .selectAll("dot")
       .data(loadedData)
-      .enter()
-      .append("circle")
+      .join("circle")
         .attr("class", "bubbles")
         .attr("cx", d => x(d.gdp_pc_2000))
         .attr("cy", d => y(d.avh_2000))
@@ -209,7 +207,7 @@ function updateChart(year) {
       .on("mouseover", showTooltip )
       .on("mousemove", moveTooltip )
       .on("mouseleave", hideTooltip )
-    }
+    } */
 }
 
 // Get the data from github gist to avoid the cors issue
@@ -221,5 +219,21 @@ d3.csv("https://gist.githubusercontent.com/ratanbajpai/c193761399371a5b61534f87c
   console.log("Going to update chart");
   // Call method to update chart
   updateChart("1980");
+
+  svg.append('g')
+    .selectAll("dot")
+    .data(data)
+    .join("circle")
+      .attr("class", "bubbles")
+      .attr("cx", d => x(d.gdp_pc_1980))
+      .attr("cy", d => y(d.avh_1980))
+      .attr("r", d => z(d.pop_1980))
+      .attr('fill-opacity', 0.8)
+      .style("fill", d => myColor(d.continent))
+    // Trigger the tooltip functions
+    .on("mouseover", showTooltip )
+    .on("mousemove", moveTooltip )
+    .on("mouseleave", hideTooltip )
+
 
 }) // After loading data
