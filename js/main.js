@@ -109,10 +109,10 @@ const annot_2000 = [
     color: ["#cc0000"],
     color: ["#cc0000"],
     x: 250,
-    y: 450,
+    y: 425,
     dy: -100,
     dx: 100,
-    subject: { radius: 40, radiusPadding: 10 },
+    subject: { radius: 50, radiusPadding: 10 },
     type: d3.annotationCalloutCircle,
   }
 ];
