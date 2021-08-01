@@ -82,14 +82,14 @@ const annot_2019 = [
     note: {
       label: "In Singapore, even though incomes are high, people work longer hours.",
       title: "Singapore",
-      wrap: 150,  // try something smaller to see text split in several lines
+      wrap: 100,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
 
     },
     color: ["#cc0000"],
     color: ["#cc0000"],
-    x: 550,
-    y: 175,
+    x: 525,
+    y: 160,
     dy: -45,
     dx: 45,
     subject: { radius: 25, radiusPadding: 10 },
