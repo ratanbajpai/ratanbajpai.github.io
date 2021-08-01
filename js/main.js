@@ -169,7 +169,7 @@ function updateChart(year) {
 
   // Add one dot in the legend for each name.
   svg.selectAll("mydots")
-      .data(keys)
+      .data(values)
       .enter()
       .append("circle")
       .attr("cx", width + 20)
@@ -179,7 +179,7 @@ function updateChart(year) {
 
   // Add one dot in the legend for each name.
   svg.selectAll("mylabels")
-      .data(keys)
+      .data(values)
       .enter()
       .append("text")
       .attr("x", width + 30)
