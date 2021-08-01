@@ -15,6 +15,7 @@ const svg = d3.select("#bubble_plot")
 
 // Variable to store dataset after loading
 var loadedData;
+var chartYear = "1980";
 
 // Axes scales
 const x = d3.scaleLinear()
@@ -59,14 +60,28 @@ const tooltip = d3.select('#bubble_plot')
 // Create 3 functions to show / update (when mouse moves but stays
 // on same circle) / hide the tooltip
 const showTooltip = function(d) {
+  var pop, avg_hours, num_emp;
+  if (chartYear === "1980") {
+    pop = d.pop_1980;
+    avg_hours = d.avh_1980;
+    num_emp = d.emp_1980;
+  } else if (chartYear === "2000") {
+    pop = d.pop_2000;
+    avg_hours = d.avh_2000;
+    num_emp = d.emp_2000;
+  } else if (chartYear === "2019") {
+    pop = d.pop_2019;
+    avg_hours = d.avh_2019;
+    num_emp = d.emp_2019;
+  }
   tooltip
   .transition()
   .duration(200)
   tooltip
   .style("opacity", 1)
   .html("Country: " + d.country
-  + "<br>" + "Population in millions: "+ Math.ceil(d.pop_2019)
-  + "<br>" + "Average annual hours: " + d.avh_2019)
+  + "<br>" + "Population in millions: "+ Math.ceil(d.pop)
+  + "<br>" + "Average annual hours: " + d.avg_hours)
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
   .style("left", (d3.mouse(this)[0]+120) + "px")
@@ -99,13 +114,14 @@ function initChart(year) {
     btns[i].addEventListener("click", function(e) {
       e = e || window.event;
       var target = e.target || e.srcElement;
-      console.log("value of the element clicked== "+target.innerText);
+      chartYear = target.innerText;
+      console.log("value of the element clicked== "+chartYear);
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
       this.className += " active";
 
       // Now we need to update data based on what year was clicked
-      updateChart(target.innerText);
+      updateChart(chartYear);
     });
   }
 }
