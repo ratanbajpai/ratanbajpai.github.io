@@ -109,7 +109,7 @@ const annot_2000 = [
 const annot_1980 = [
   {
     note: {
-      label: "In the 1980s workers in most countries were working on an average over 1800 hours annually.",
+      label: "In the 1980s workers in most countries were working on an average over 1800 hours annually. This trend changes in later slides to workers in more countries working fewer hours.",
       title: "Higher Average Hours Worked",
       wrap: 215,  // try something smaller to see text split in several lines
       padding: 10   // More = text lower
@@ -161,13 +161,13 @@ const showTooltip = function(d) {
   + "<br>" + "Population (in millions): "+ Math.ceil(pop)
   + "<br>" + "Average annual hours worked: " + avg_hours
   + "<br>" + "Per capita GDP (2017 USD): " + gdp_pc)
-  .style("left", (d3.event.pageX) + "px")
-  .style("top", (d3.event.pageY) + "px")
+  .style("left", (d3.event.pageX + 10) + "px")
+  .style("top", (d3.event.pageY + 10) + "px")
 }
 const moveTooltip = function(d) {
   tooltip
-  .style("left", (d3.event.pageX) + "px")
-  .style("top", (d3.event.pageY) + "px")
+  .style("left", (d3.event.pageX + 10) + "px")
+  .style("top", (d3.event.pageY + 10) + "px")
 }
 const hideTooltip = function(d) {
   tooltip
