@@ -49,17 +49,6 @@ function make_y_gridlines() {
   return d3.axisLeft(y).ticks(10)
 }
 
-// Annotations
-/*  {
-    note: { label: "Hi" },
-    x: 500,
-    y: 500,
-    dy: 137,
-    dx: 162,
-    subject: { radius: 50, radiusPadding: 10 },
-  },
-]; */
-
 const annot_2019 = [
   {
     note: {
@@ -172,25 +161,13 @@ const showTooltip = function(d) {
   + "<br>" + "Population (in millions): "+ Math.ceil(pop)
   + "<br>" + "Average annual hours worked: " + avg_hours
   + "<br>" + "Per capita GDP (2017 USD): " + gdp_pc)
-  // .style("left", (event.x)/2 + "px")
-  // .style("top", (event.y)/2+30 + "px")
   .style("left", (d3.event.pageX) + "px")
   .style("top", (d3.event.pageY) + "px")
-  //.style("left", (d3.mouse(this)[0]+250) + "px")
-  //.style("top", (d3.mouse(this)[1]+525) + "px")
-  // .style("right", d3.select(this).attr("cx") + "px")
-  // .style("top", d3.select(this).attr("cy") + "px");
 }
 const moveTooltip = function(d) {
   tooltip
-  // .style("left", (event.x)/2 + "px")
-  // .style("top", (event.y)/2+30 + "px")
   .style("left", (d3.event.pageX) + "px")
   .style("top", (d3.event.pageY) + "px")
-  //.style("left", (d3.mouse(this)[0]+250) + "px")
-  //.style("top", (d3.mouse(this)[1]+525) + "px")
-  // .style("right", d3.select(this).attr("cx") + "px")
-  // .style("top", d3.select(this).attr("cy") + "px");
 }
 const hideTooltip = function(d) {
   tooltip
