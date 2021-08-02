@@ -174,8 +174,8 @@ const showTooltip = function(d) {
   + "<br>" + "Per capita GDP (2017 USD): " + gdp_pc)
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+275) + "px")
-  .style("top", (d3.mouse(this)[1]+500) + "px")
+  .style("left", (d3.mouse(this)[0]+250) + "px")
+  .style("top", (d3.mouse(this)[1]+525) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
@@ -183,8 +183,8 @@ const moveTooltip = function(d) {
   tooltip
   // .style("left", (event.x)/2 + "px")
   // .style("top", (event.y)/2+30 + "px")
-  .style("left", (d3.mouse(this)[0]+275) + "px")
-  .style("top", (d3.mouse(this)[1]+500) + "px")
+  .style("left", (d3.mouse(this)[0]+250) + "px")
+  .style("top", (d3.mouse(this)[1]+525) + "px")
   // .style("right", d3.select(this).attr("cx") + "px")
   // .style("top", d3.select(this).attr("cy") + "px");
 }
